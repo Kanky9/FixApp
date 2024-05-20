@@ -1,0 +1,25 @@
+<ion-content>
+
+  <app-menu [showBackButton]="true" backButton="/home"></app-menu>
+
+  <div class="cont" *ngIf="admin">
+
+    <div class="cont-title">
+      <h3>Solicitudes para cuenta de empresa</h3>
+    </div>
+
+    <div class="cont-historial" *ngFor="let user of usersWithRequests">
+      <p><strong>{{ user.nombre }} {{ user.apellido }}</strong> solicita una cuenta de empresa:</p>
+      <p>{{ user.message }}</p>
+      <p>Datos del usuario: </p>
+      <ul>
+        <li><strong>Email:</strong> {{user.email}}</li>
+        <li><strong>Teléfono:</strong> {{user.telefono}}</li>
+        <li><strong>DNI:</strong> {{user.dni}}</li>
+      </ul>
+      <ion-button class="aceptada" color="success" (click)="approveRequest(user)">Aprobar</ion-button>
+      <ion-button class="rechazada" color="danger" (click)="rejectRequest(user)">Rechazar</ion-button>
+    </div>
+
+  </div>
+</ion-content>

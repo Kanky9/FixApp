@@ -1,0 +1,89 @@
+<ion-content>
+  <app-menu [showBackButton]="true" [backButton]="'/home'"></app-menu>
+
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <div class="content-inner">
+    
+
+    <div class="discover-container">
+      <div class="cont-title">
+        <h3>Mis Favoritos</h3>
+      </div>
+
+      <!-- ========== Publicaciones Favoritas ========== -->
+      <div class="item" *ngFor="let p of favoriteProducts">
+
+        <div class="cont-botones">
+          <div class="cont-botonfav">
+            <button class="boton-favorito" (click)="toggleFavorite(p.productId)">
+              <ion-icon [name]="'heart'"></ion-icon>
+            </button>
+          </div>
+
+          <div class="cont-botonmas">
+            <button class="botonmas">+</button>
+          </div>
+        </div>
+
+        <div class="cont-img">
+          <img [src]="p.imagePrincipal" [alt]="p.nombre">
+        </div>
+        <div class="details">
+          <div>
+            <h2>{{ p.nombre }}</h2>
+          </div>
+          <div>
+            <p><span><ion-icon slot="start" name="locate"></ion-icon>Ubicación:</span> {{ p.ubicacion }}</p>
+          </div>
+          <div>
+            <p><span><ion-icon slot="start" name="location"></ion-icon>Dirección:</span> {{ p.direccion }}</p>
+          </div>
+          <div>
+            <p><span><ion-icon slot="start" name="call"></ion-icon> Teléfono:</span> {{ p.telefono }}</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ========== Loading ========== -->
+      <ion-content *ngIf="loading" class="loading">
+        <div class="item" *ngFor="let p of [1, 1, 1, 1, 1, 1, 1, 1]">
+          <div class="cont-botones">
+            <div class="cont-botonfav">
+              <button class="boton-favorito">
+                <ion-skeleton-text animated style="width: 30%; background-color: #252A2F;"></ion-skeleton-text>
+              </button>
+            </div>
+            <div class="cont-botonmas">
+              <ion-skeleton-text animated style="width: 30%; background-color: #252A2F;"></ion-skeleton-text>
+            </div>
+          </div>
+          <div class="cont-img">
+            <ion-avatar slot="start">
+              <ion-skeleton-text animated
+                style="width: 100%; height: 100%; background-color: #252A2F;"></ion-skeleton-text>
+            </ion-avatar>
+          </div>
+          <div class="details">
+            <div>
+              <ion-skeleton-text animated style="width: 50%; background-color: #252A2F;"></ion-skeleton-text>
+            </div>
+            <div>
+              <ion-skeleton-text animated style="width: 30%; background-color: #252A2F;"></ion-skeleton-text>
+            </div>
+            <div>
+              <ion-skeleton-text animated style="width: 70%; background-color: #252A2F;"></ion-skeleton-text>
+            </div>
+            <div>
+              <ion-skeleton-text animated style="width: 60%; background-color: #252A2F;"></ion-skeleton-text>
+            </div>
+          </div>
+        </div>
+      </ion-content>
+    </div>
+  </div>
+
+</ion-content>

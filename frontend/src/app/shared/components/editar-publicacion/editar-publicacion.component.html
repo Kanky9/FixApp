@@ -1,0 +1,102 @@
+<ion-content>
+  <app-menu [showBackButton]="true" backButton="/home"></app-menu>
+  <div class="cont">
+
+    <div class="cont-title">
+      <h3>Editar publicación</h3>
+    </div>
+
+    <form [formGroup]="form" (ngSubmit)="submit()" (keypress.enter)="submit()">
+
+      <!-- Imagen Principal -->
+      <div class="cont-img-principal" *ngIf="form.value.imagePrincipal">
+        <img [src]="form.value.imagePrincipal" />
+      </div>
+      <div class="cont-icon" *ngIf="!form.value.imagePrincipal">
+        <ion-icon class="img-icon" name="image-outline"></ion-icon>
+      </div>
+      <ion-button (click)="takeImage()" expand="block" mode="ios" size="small" shape="round">
+        Imagen principal
+      </ion-button>
+
+      <!--  ========== Nombre ==========  -->
+      <app-custom-input autocomplete="nombre" [control]="form.controls.nombre" type="text"
+        label="Nombre"></app-custom-input>
+
+      <!--  ========== categoria ==========  -->
+      <ion-item>
+        <ion-label>Categoría</ion-label>
+        <ion-select formControlName="categoria" (ionChange)="categoriaSeleccionada($event.detail.value)"
+          class="categoria">
+          <ion-select-option *ngFor="let categoria of categorias" [value]="categoria.nombre">
+            {{ categoria.nombre }}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <!--  ========== area ==========  -->
+      <ion-item *ngIf="form.get('categoria').value">
+        <ion-label>Área</ion-label>
+        <ion-select formControlName="area" class="categoria">
+          <ion-select-option *ngFor="let area of getCategoriaAreas(form.get('categoria').value)" [value]="area">
+            {{ area }}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <br>
+
+    <!-- Múltiples Imágenes -->
+    <div class="cont-imgs" *ngIf="form.value.imagenes.length > 0">
+      <ion-label>Imágenes</ion-label>
+      <ion-grid>
+        <ion-row>
+          <ion-col size="12">
+            <div class="img-container" *ngFor="let image of form.value.imagenes; let i = index">
+              <img [src]="image" />
+              <ion-button (click)="removeImage(i)" mode="ios" size="small" shape="round" color="danger">
+                Eliminar
+              </ion-button>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+    
+    <ion-button *ngIf="form.value.imagenes.length < 6" (click)="selectImages()" expand="block" mode="ios" size="small"
+      shape="round">
+      Seleccionar Imágenes (Máx. 6)
+    </ion-button>
+
+    <br>
+      <!--  ========== Descripción ========== -->
+      <ion-item counter="true" required>
+        <ion-label position="floating">Descripción:</ion-label>
+        <ion-textarea maxlength="2500" [formControl]="form.controls.descripcion" rows="10"></ion-textarea>
+        <div slot="helper">Ingresa texto</div>
+        <div slot="error">La descripción es requerida</div>
+      </ion-item>
+
+      <!--  ========== Ubicación ==========  -->
+      <app-custom-input autocomplete="ubicacion" [control]="form.controls.ubicacion" type="text"
+        label="Ubicación"></app-custom-input>
+
+      <!--  ========== Dirección ==========  -->
+      <app-custom-input autocomplete="direccion" [control]="form.controls.direccion" type="text"
+        label="Dirección"></app-custom-input>
+
+      <!--  ========== Teléfono ==========  -->
+      <app-custom-input autocomplete="telefono" [control]="form.controls.telefono" type="number"
+        label="Teléfono"></app-custom-input>
+
+      <!--  ========== Botones ========== -->
+
+      <ion-button expand="block" mode="ios" class="submit" type="submit" [disabled]="!form.valid" [routerLink]="['/mis-publicaciones']" routerLinkActive="active" routerDirection="root">
+        Guardar cambios
+        <ion-icon slot="end" name="save"></ion-icon>
+      </ion-button>
+
+    </form>
+
+  </div>
+</ion-content>

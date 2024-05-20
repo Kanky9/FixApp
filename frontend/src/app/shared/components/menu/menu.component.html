@@ -1,0 +1,106 @@
+<ion-menu contentId="menu-content" menuId="menu-content">
+  <ion-header class="ion-no-border">
+    <ion-toolbar>
+      <ion-title id="menu-title">⚙️ Ajustes</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding">
+
+    <ion-menu-toggle *ngIf="!showBackButton">
+      <ion-item [routerLink]="['/home']" routerLinkActive="active" routerDirection="root" detail>
+        <ion-icon icon="home-outline"></ion-icon>
+        <ion-label>Inicio</ion-label>
+      </ion-item>
+    </ion-menu-toggle>
+
+    <ion-menu-toggle *ngIf="!showBackButton">
+      <ion-item *ngIf="!logInLogOut" [routerLink]="['/auth']" routerLinkActive="active" routerDirection="root" detail>
+        <ion-icon name="log-in-outline"></ion-icon>
+        <ion-label>Iniciar sesión</ion-label>
+      </ion-item>
+    </ion-menu-toggle>
+
+    <ion-menu-toggle *ngIf="!showBackButton">
+      <ion-item (click)="singOut()" detail *ngIf="logInLogOut">
+        <ion-icon name="log-out-outline"></ion-icon>
+        <ion-label>Cerrar sesión</ion-label>
+      </ion-item>
+    </ion-menu-toggle>
+    
+    <ion-menu-toggle *ngIf="!showBackButton">
+      <ion-item detail *ngIf="logInLogOut" [routerLink]="['/perfil']" routerLinkActive="active" routerDirection="root" detail>
+        <ion-icon name="person-outline"></ion-icon>
+        <ion-label>Perfil</ion-label>
+      </ion-item>
+    </ion-menu-toggle>
+
+    <ion-menu-toggle *ngIf="isAdmin && !showBackButton">
+      <ion-item [routerLink]="['/admin-dashboard']" routerLinkActive="active" routerDirection="root" detail>
+        <ion-icon name="shield-checkmark-outline"></ion-icon>
+        <ion-label>Administrar solicitudes</ion-label>
+      </ion-item>
+    </ion-menu-toggle>
+
+    <ion-menu-toggle *ngIf="isAdmin && !showBackButton">
+      <ion-item [routerLink]="['/historial-solicitudes']" routerLinkActive="active" routerDirection="root" detail>
+        <ion-icon name="document-text-outline"></ion-icon>
+        <ion-label>Historial solicitudes</ion-label>
+      </ion-item>
+    </ion-menu-toggle>
+    <br>
+
+    <ion-menu-toggle *ngIf="!showBackButton">
+      <ion-item [routerLink]="['/favoritos']" routerLinkActive="active" routerDirection="root" detail *ngIf="logInLogOut">
+        <ion-icon name="heart"></ion-icon>
+        <ion-label>Mis favoritos</ion-label>
+      </ion-item>
+    </ion-menu-toggle>
+
+    <ion-menu-toggle *ngIf="!showBackButton">
+      <ion-item [routerLink]="['/publicaciones']" routerLinkActive="active" routerDirection="root" detail>
+        <ion-icon name="albums-outline"></ion-icon>
+        <ion-label>Publicaciones</ion-label>
+      </ion-item>
+    </ion-menu-toggle>
+
+    <ion-menu-toggle *ngIf="isCompany &&!showBackButton">
+      <ion-item [routerLink]="['/agregar-publicacion']" routerLinkActive="active" routerDirection="root" detail *ngIf="logInLogOut">
+        <ion-icon name="add-circle-outline"></ion-icon>
+        <ion-label>Publicar</ion-label>
+      </ion-item>
+    </ion-menu-toggle>
+
+    <ion-menu-toggle *ngIf="isCompany &&!showBackButton">
+      <ion-item [routerLink]="['/mis-publicaciones']" routerLinkActive="active" routerDirection="root" detail *ngIf="logInLogOut">
+        <ion-icon name="clipboard-outline"></ion-icon>
+        <ion-label>Mis publicaciones</ion-label>
+      </ion-item>
+    </ion-menu-toggle>
+
+    
+
+  </ion-content>
+</ion-menu>
+
+<div class="ion-page" id="menu-content">
+  <ion-header class="ion-no-border">
+    <ion-toolbar>
+      
+      <ion-buttons slot="start" *ngIf="showBackButton">
+        <ion-back-button [defaultHref]="backButton"></ion-back-button>
+      </ion-buttons>
+
+      <ion-buttons slot="start">
+        <ion-menu-button *ngIf="!showBackButton"></ion-menu-button>
+      </ion-buttons>
+<!-- 
+      <div class="cont-logo">
+        <img class="logo" src="../../../../assets/img/home/F_X_Logo2.png" alt="">
+      </div>
+-->
+      <div class="user-logo-container">
+        <img src="../../../../assets/img/home/perfil-sin-fondo.png" alt="">
+      </div>
+    </ion-toolbar>
+  </ion-header>
+</div>

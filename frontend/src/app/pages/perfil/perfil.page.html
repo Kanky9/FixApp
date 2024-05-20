@@ -1,0 +1,12 @@
+<ion-content>
+
+  <app-menu [showBackButton]="true" backButton="/home"></app-menu>
+
+  <div class="cont">
+    <h1>Perfil de Usuario</h1>
+    <!-- Otros detalles del perfil -->
+  
+    <ion-button *ngIf="!empresa" (click)="goToRequestBusinessAccount()">Enviar solicitud para cuenta de
+      empresa</ion-button>
+  </div>
+</ion-content>

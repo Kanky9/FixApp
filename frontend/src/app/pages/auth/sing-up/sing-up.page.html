@@ -1,0 +1,221 @@
+<ion-content>
+
+  <app-menu [showBackButton]="true" backButton="/auth"></app-menu>
+
+  <div class="cont">
+
+    <div class="cont-title">
+      <h3>Crea tu cuenta en FIX</h3>
+    </div>
+
+    <form [formGroup]="form" (ngSubmit)="submit()" (keypress.enter)="submit()">
+
+      <!--  ========== Nombre ==========  -->
+      <app-custom-input 
+        autocomplete="nombre"
+        icon="person"
+        [control]="form.controls.nombre"
+        type="text"
+        label="Nombre"
+      ></app-custom-input>
+      
+      <!--  ========== nombre Validators ==========  -->
+      <div class="validators" *ngIf="form.controls.nombre.errors && form.controls.nombre.touched">
+        
+        <div *ngIf="form.controls.nombre.errors?.['required']">
+          <p>El nombre es requerido.</p>
+        </div>
+
+        <div *ngIf="form.controls.nombre.errors?.['minLength']">
+          <p>El nombre debe contener al menos 3 caracteres.</p>
+        </div>
+      
+      </div>
+
+      <!--  ========== Apellido ==========  -->
+      <app-custom-input 
+        autocomplete="apellido"
+        icon="person"
+        [control]="form.controls.apellido"
+        type="text"
+        label="Apellido"
+      ></app-custom-input>
+      
+      <!--  ========== Apellido Validators ==========  -->
+      <div class="validators" *ngIf="form.controls.apellido.errors && form.controls.apellido.touched">
+        
+        <div *ngIf="form.controls.apellido.errors?.['required']">
+          <p>El apellido es requerido.</p>
+        </div>
+
+        <div *ngIf="form.controls.apellido.errors?.['minLength']">
+          <p>El apellido debe contener al menos 3 caracteres.</p>
+        </div>
+      
+      </div>
+
+      <!--  ========== Email ==========  -->
+      <app-custom-input 
+        autocomplete="email"
+        icon="mail"
+        [control]="form.controls.email"
+        type="email"
+        label="Correo"
+      ></app-custom-input>
+      
+      <!--  ========== Email Validators ==========  -->
+      <div class="validators" *ngIf="form.controls.email.errors && form.controls.email.touched">
+        
+        <div *ngIf="form.controls.email.errors?.['required']">
+          <p>El correo es requerido.</p>
+        </div>
+
+        <div *ngIf="form.controls.email.errors?.['email']">
+          <p>El correo debe ser válido.</p>
+        </div>
+      
+      </div>
+
+      <!--  ========== Password ==========  -->
+      <app-custom-input 
+        [control]="form.controls.password"     
+        icon="lock-closed"
+        type="password"
+        label="Contraseña"
+      ></app-custom-input>
+
+      <!--  ========== Password Validators ==========  -->
+      <div class="validators" *ngIf="form.controls.password.errors && form.controls.password.touched">
+      
+        <div *ngIf="form.controls.password.errors?.['required']">
+          <p>La contraseña es requerida.</p>
+        </div>
+      
+      </div>
+
+      <!--  ========== Teléfono ==========  -->
+      <app-custom-input 
+        autocomplete="telefono"
+        icon="call"
+        [control]="form.controls.telefono"
+        type="number"
+        label="Teléfono"
+      ></app-custom-input>
+      
+      <!--  ========== Teléfono Validators ==========  -->
+      <div class="validators" *ngIf="form.controls.telefono.errors && form.controls.telefono.touched">
+        
+        <div *ngIf="form.controls.telefono.errors?.['required']">
+          <p>El telefono es requerido.</p>
+        </div>
+
+        <div *ngIf="form.controls.telefono.errors?.['minLength']">
+          <p>El telefono debe contener 10 caracteres.</p>
+        </div>
+
+        <div *ngIf="form.controls.telefono.errors?.['maxLength']">
+          <p>El telefono debe contener 10 caracteres.</p>
+        </div>
+      
+      </div>
+
+      <!--  ========== Fecha ==========  -->
+      <app-custom-input 
+        autocomplete="fecha"
+        icon="calendar"
+        [control]="form.controls.fecha"
+        type="date"
+        label="Fecha de nacimiento" 
+      ></app-custom-input>
+      
+      <!--  ========== fecha Validators ==========  -->
+      <div class="validators" *ngIf="form.controls.fecha.errors && form.controls.fecha.touched">
+        
+        <div *ngIf="form.controls.fecha.errors?.['required']">
+          <p>La fecha es requerida.</p>
+        </div>
+      
+      </div>
+      
+      <!--  ========== DNI ==========  -->
+      <app-custom-input 
+        autocomplete="dni"
+        icon="id-card"
+        [control]="form.controls.dni"
+        type="number"
+        label="DNI"
+      ></app-custom-input>
+      
+      <!--  ========== dni Validators ==========  -->
+      <div class="validators" *ngIf="form.controls.dni.errors && form.controls.dni.touched">
+        
+        <div *ngIf="form.controls.dni.errors?.['required']">
+          <p>El dni es requerido.</p>
+        </div>
+
+        <div *ngIf="form.controls.dni.errors?.['minLength']">
+          <p>El dni debe contener 8 caracteres.</p>
+        </div>
+
+        <div *ngIf="form.controls.dni.errors?.['maxLength']">
+          <p>El dni debe contener 8 caracteres.</p>
+        </div>
+      
+      </div>
+
+      <!--  ========== Ubicación ==========  -->
+      <app-custom-input 
+        autocomplete="ubicacion"
+        icon="locate"
+        [control]="form.controls.ubicacion"
+        type="text"
+        label="Ubicación"
+      ></app-custom-input>
+      
+      <!--  ========== ubicacion Validators ==========  -->
+      <div class="validators" *ngIf="form.controls.ubicacion.errors && form.controls.ubicacion.touched">
+        
+        <div *ngIf="form.controls.ubicacion.errors?.['required']">
+          <p>La ubicacion es requerida.</p>
+        </div>
+
+        <div *ngIf="form.controls.ubicacion.errors?.['minLength']">
+          <p>El ubicacion debe contener al menos 4 caracteres.</p>
+        </div>
+      
+      </div>
+      
+      <!--  ========== Dirección ==========  -->
+      <app-custom-input 
+        autocomplete="direccion"
+        icon="location"
+        [control]="form.controls.direccion"
+        type="text"
+        label="Dirección"
+      ></app-custom-input>
+      
+      <!--  ========== direccion Validators ==========  -->
+      <div class="validators" *ngIf="form.controls.direccion.errors && form.controls.direccion.touched">
+        
+        <div *ngIf="form.controls.direccion.errors?.['required']">
+          <p>La direccion es requerida.</p>
+        </div>
+
+        <div *ngIf="form.controls.direccion.errors?.['minLength']">
+          <p>El direccion debe contener al menos 4 caracteres.</p>
+        </div>
+      
+      </div>
+
+
+      <!--  ========== Botones ========== -->
+
+      <ion-button expand="block" mode="ios" class="submit" type="submit" [disabled]="!form.valid">
+        Registrate
+        <ion-icon slot="end" name="person-add"></ion-icon>
+      </ion-button>
+
+    </form>
+
+  </div>
+</ion-content>

@@ -1,0 +1,27 @@
+<ion-content>
+
+  <app-menu [showBackButton]="true" backButton="/home"></app-menu>
+
+  <div class="cont">
+    <div class="cont-title">
+      <h3>Historial de solicitudes</h3>
+    </div>
+
+    <div class="cont-historial" *ngFor="let request of requests">
+      <h3>{{ request.nombre }} {{ request.apellido }}</h3>
+      <p>{{ request.message }}</p>
+      <ul>
+        <li><strong>Email:</strong> {{request.email}}</li>
+        <li><strong>Teléfono:</strong> {{request.telefono}}</li>
+        <li><strong>DNI:</strong> {{request.dni}}</li>
+      </ul>
+      <div class="aceptada" *ngIf="request.empresa">
+        <p  >Aceptada</p>
+      </div>
+      <div class="rechazada" *ngIf="!request.empresa">
+        <p  >Rechazada</p>
+      </div>
+      
+    </div>
+  </div>
+</ion-content>

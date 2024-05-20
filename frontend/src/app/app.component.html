@@ -1,0 +1,13 @@
+<ion-app>
+  <ion-router-outlet *ngIf="!showLoader"></ion-router-outlet>
+  <ion-content *ngIf="showLoader" id="pantalla-carga">
+
+
+    <div class="loading-container">
+      <img src="../assets/img/home/pantallacarga.png" alt="Imagen de carga">
+      <p class="bienvenido">Bienvenido a FIX</p>
+    </div>
+    
+  </ion-content>
+</ion-app>
+

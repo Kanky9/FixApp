@@ -1,0 +1,33 @@
+
+<ion-content>
+
+  <app-menu [showBackButton]="true" backButton="/perfil"></app-menu>
+
+  <div class="cont">
+
+    <div class="cont-title">
+      <h1>Solicitud de Cuenta de Empresa</h1>
+    </div>
+
+    <form [formGroup]="form" (ngSubmit)="submit()" (keypress.enter)="submit()">
+    
+    
+      <!--  ========== descripcion ========== -->
+      <ion-item counter="true" required>
+        <ion-label position="floating">Mensaje:</ion-label>
+        <ion-textarea maxlength="2500" [formControl]="form.controls.message" rows="10"></ion-textarea>
+        <div slot="helper">Ingresa texto</div>
+        <div slot="error">La descripción es requerida</div>
+      </ion-item>
+    
+      <!--  ========== Botones ========== -->
+    
+      <ion-button expand="block" mode="ios" class="submit" type="submit" [disabled]="!form.valid">
+        Enviar solicitud
+        <ion-icon slot="end" name="person-add"></ion-icon>
+      </ion-button>
+    
+    </form>
+
+  </div>
+</ion-content>
