@@ -1,8 +1,6 @@
 <ion-content>
-  
   <app-menu [showBackButton]="false"></app-menu>
-  
-  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)" >
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
 
@@ -10,22 +8,24 @@
     <div class="cont-logo">
       <img class="logo" src="../../../assets/img/home/F_X_Logo.png" alt="">
     </div>
- 
+
     <div class="search-container">
       <ion-item lines="none">
-        <ion-input type="text" placeholder="Buscar"></ion-input>
+        <ion-input type="text" placeholder="Buscar" (ionInput)="onSearchChange($event)"></ion-input>
         <ion-icon name="search-outline"></ion-icon>
       </ion-item>
     </div>
 
     <div class="discover-container">
       <div class="cont-title">
-        <h3>Descubre</h3>
+        <h3 *ngIf="!searchText">Descubre</h3>
+        <h3 *ngIf="searchText && filteredProducts.length">Resultados para: "{{ searchText }}"</h3>
+        <h3 *ngIf="searchText && !filteredProducts.length">No se encontraron resultados para: "{{ searchText }}"</h3>
       </div>
 
       <!-- ========== Publicaciones ========== -->
-      <div class="item" *ngFor="let p of products">
-      
+      <div class="item" *ngFor="let p of filteredProducts">
+
         <div class="cont-botones">
           <div class="cont-botonfav">
             <button class="boton-favorito" (click)="toggleFavorite(p.productId)">
@@ -33,13 +33,12 @@
             </button>
           </div>
 
-          <div class="cont-botonmas">
+          <div class="cont-botonmas" (click)="goToPublicacion(p.productId)">
             <button class="botonmas">+</button>
           </div>
         </div>
-      
+
         <div class="cont-img">
-          <!-- Vincula la propiedad image del artículo al atributo src de la etiqueta img -->
           <img [src]="p.imagePrincipal" [alt]="p.nombre">
         </div>
         <div class="details">
@@ -56,7 +55,7 @@
             <p><span><ion-icon slot="start" name="call"></ion-icon> Teléfono:</span> {{ p.telefono }}</p>
           </div>
         </div>
-      
+
       </div>
 
       <!-- ========== Loading ========== -->
@@ -74,7 +73,8 @@
           </div>
           <div class="cont-img">
             <ion-avatar slot="start">
-              <ion-skeleton-text animated style="width: 100%; height: 100%; background-color: #252A2F;"></ion-skeleton-text>
+              <ion-skeleton-text animated
+                style="width: 100%; height: 100%; background-color: #252A2F;"></ion-skeleton-text>
             </ion-avatar>
           </div>
           <div class="details">
@@ -93,12 +93,7 @@
           </div>
         </div>
       </ion-content>
-
-
-
-      
     </div>
   </div>
-  
   <app-footer></app-footer>
 </ion-content>

@@ -8,5 +8,21 @@
   
     <ion-button *ngIf="!empresa" (click)="goToRequestBusinessAccount()">Enviar solicitud para cuenta de
       empresa</ion-button>
+
+    <div *ngIf="currentUser">
+      <p *ngIf="currentUser.admin"><strong>Cuenta de administrador</strong></p>
+      <p *ngIf="currentUser.empresa"><strong>Cuenta de empresa activa</strong></p>
+      
+    
+      <p><strong>Nombre:</strong> {{ currentUser.nombre }}</p>
+      <p><strong>Apellido:</strong> {{ currentUser.apellido }}</p>
+      <p><strong>Email:</strong> {{ currentUser.email }}</p>
+      <p><strong>Teléfono:</strong> {{ currentUser.telefono }}</p>
+      <p><strong>Fecha de Nacimiento:</strong> {{ currentUser.fecha | date }}</p>
+      <p><strong>DNI:</strong> {{ currentUser.dni }}</p>
+      <p><strong>Ubicación:</strong> {{ currentUser.ubicacion }}</p>
+      <p><strong>Dirección:</strong> {{ currentUser.direccion }}</p>
+    </div>
+
   </div>
 </ion-content>

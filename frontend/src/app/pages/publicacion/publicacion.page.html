@@ -1,19 +1,29 @@
-<ion-content>
+<ion-content>  
 
   <app-menu [showBackButton]="true" backButton="/home"></app-menu>
 
-  <!-- Contenido adicional -->
-  <div class="image-container">
-    <img src="tu-imagen.jpg" alt="Imagen">
-  </div>
-  <div class="details-container">
-    <h2>Detalles de la imagen</h2>
-    <ul>
-      <li><strong>Título:</strong> Nombre de la imagen</li>
-      <li><strong>Fecha:</strong> Fecha de la imagen</li>
-      <li><strong>Descripción:</strong> Descripción de la imagen</li>
-      <!-- Agrega más detalles si es necesario -->
-    </ul>
+  <div class="cont" *ngIf="publicacion">
+    <ion-card>
+      <img [src]="publicacion.imagePrincipal" alt="Imagen de producto">
+      <ion-card-header>
+        <ion-card-title>{{ publicacion.nombre }}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-row>
+          <ion-col size="6" *ngFor="let imagen of publicacion.imagenes">
+            <img [src]="imagen" alt="Imagen">
+          </ion-col>
+        </ion-row>
+
+        <p><strong>Categoría:</strong> {{ publicacion.categoria }}</p>
+        <p><strong>Área:</strong> {{ publicacion.area }}</p>
+        <p><strong>Ubicación:</strong> {{ publicacion.ubicacion }}</p>
+        <p><strong>Dirección:</strong> {{ publicacion.direccion }}</p>
+        <p><strong>Teléfono:</strong> {{ publicacion.telefono }}</p>
+        <p><strong>Descripción:</strong> {{ publicacion.descripcion }}</p>
+
+      </ion-card-content>
+    </ion-card>
   </div>
 
 </ion-content>

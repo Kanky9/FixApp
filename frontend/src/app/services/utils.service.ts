@@ -2,6 +2,7 @@ import { inject, Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController, LoadingController, ToastController, ToastOptions } from '@ionic/angular';
 import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
+import { TextFieldTypes } from '@ionic/core'; // Importa TextFieldTypes
  
 @Injectable({
   providedIn: 'root',
@@ -84,5 +85,22 @@ export class UtilsService {
   /* ========== Obtiene un elemento desde localstorage ========== */
   getFromLocalStorage(key: string) {
     return JSON.parse(localStorage.getItem(key));
+  }
+
+
+
+  async presentPrompt(options: {
+    header: string;
+    inputs: { name: string; type: TextFieldTypes | "checkbox" | "radio" | "textarea"; placeholder: string }[];
+    buttons: { text: string; role?: string; handler?: (data: any) => void }[];
+  }) {
+    const alert = await this.alertCtrl.create({
+      header: options.header,
+      inputs: options.inputs,
+      buttons: options.buttons
+    });
+
+    await alert.present();
+    return alert;
   }
 }

@@ -9,9 +9,6 @@ app-menu{
   z-index: 100000;
 }
 
-app-menu{
-  z-index: 100000;
-}
 
 .discover-container {
   width: 100%;
@@ -21,6 +18,16 @@ app-menu{
   text-align: start;
   align-items: start;
   
+  .filtros{
+    width: 95vw;
+    display: flex;
+    justify-content: end;
+    margin-bottom: 10px;
+
+  }
+
+  
+
   .cont-title{
     margin-top: 50px;
     z-index: 10000;

@@ -42,3 +42,30 @@
     color: #fff; // Color del texto
   }
 }
+
+.categorias-action-sheet {
+  background:#252A2F;
+  .action-sheet-wrapper {
+    background:#252A2F;
+    .action-sheet-container {
+      background:#252A2F;
+      .action-sheet-group {
+        background:#252A2F;
+        
+        .action-sheet-title {
+          font-weight: bold;
+          color:  #ffffff;
+        }
+        .action-sheet-button {
+          justify-content: flex-end;
+          color:  #ffffff;
+        }
+      }
+      .action-sheet-button {
+        color: #ffffff;
+        border-top: .5px solid #ffffffaa;
+        border-bottom: .5px solid #ffffffaa;
+      }
+    }
+  }
+}

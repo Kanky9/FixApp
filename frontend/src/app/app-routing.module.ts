@@ -44,7 +44,7 @@ const routes: Routes = [
     canActivate: [AuthGuard, EmpresaGuard]
   },
   {
-    path: 'publicacion',
+    path: 'publicacion/:productId',
     loadChildren: () => import('./pages/publicacion/publicacion.module').then( m => m.PublicacionPageModule)
   },
   {

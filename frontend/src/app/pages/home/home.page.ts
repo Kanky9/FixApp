@@ -1,4 +1,5 @@
 import { Component, inject, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Product } from 'src/app/models/product.model';
 import { User } from 'src/app/models/user.model';
 import { FirebaseService } from 'src/app/services/firebase.service';
@@ -11,13 +12,16 @@ import { UtilsService } from 'src/app/services/utils.service';
 })
 export class HomePage implements OnInit{
 
-  firebaseSvc = inject(FirebaseService); 
-  utilsSvc = inject(UtilsService); 
+  firebaseSvc = inject(FirebaseService);
+  utilsSvc = inject(UtilsService);
+  router = inject(Router);
 
   products: Product[] = [];
-  loading: boolean = false; 
+  filteredProducts: Product[] = [];
+  loading: boolean = false;
   currentUser: any;
-  favoriteMap: { [key: string]: boolean } = {}; // Mapa para gestionar favoritos
+  favoriteMap: { [key: string]: boolean } = {};
+  searchText: string = '';
 
   user(): User {
     return this.utilsSvc.getFromLocalStorage('user');
@@ -29,17 +33,16 @@ export class HomePage implements OnInit{
       event.target.complete();
     }, 1000);
   }
-  
+
   async ngOnInit() {
     this.getAllProducts();
-    
+
     await this.getAllProducts();
     this.currentUser = await this.firebaseSvc.getCurrentUser();
     if (this.currentUser) {
       const userDoc = await this.firebaseSvc.getUserDocument(this.currentUser.uid);
       const userData = userDoc?.data() as User | undefined;
       if (userData?.favorites) {
-        // Inicializa el mapa de favoritos
         userData.favorites.forEach(favId => {
           this.favoriteMap[favId] = true;
         });
@@ -53,18 +56,37 @@ export class HomePage implements OnInit{
 
   getAllProducts() {
     this.loading = true;
-    
+
     this.firebaseSvc.getAllProducts().subscribe({
       next: (res: any) => {
-        console.log(res);
-        this.products = res; 
-
+        this.products = res;
+        this.filteredProducts = this.products;
         this.loading = false;
       },
       error: (error) => {
         console.log('Error al obtener las publicaciones:', error);
       }
     });
+  }
+
+  onSearchChange(event: any) {
+    this.searchText = event.target.value.trim().toLowerCase();
+
+    if (this.searchText === '') {
+      this.filteredProducts = this.products;
+    } else {
+      this.filteredProducts = this.products.filter(product =>
+        this.searchText.split(' ').every(keyword =>
+          Object.values(product).some(value =>
+            typeof value === 'string' && value.toLowerCase().includes(keyword)
+          )
+        )
+      );
+    }
+  }
+
+  goToPublicacion(productId: string) {
+    this.router.navigate(['/publicacion', productId]);
   }
 
   async toggleFavorite(publicacionId: string) {
