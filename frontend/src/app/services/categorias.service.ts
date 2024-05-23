@@ -7,48 +7,103 @@ export class CategoriasService {
 
   /* ========== Categorías ========== */
   private categorias = [
-    {
-      nombre: 'Comercio',
+    {nombre: 'Armería',
+        
       areas: [
+        'Accesorios para armas',
+        'Armas',
+        'Artículos de arquería',
+        'Artículos de pesca',
+        'Cuchillos tácticos',
+        'Gestionar tramites',
+        'Local',
+        'Municiones',
+      ],
+    },
+  
+    {nombre: 'Bancos', 
+      areas:[
+        'Denominación',
+        'Red de cajeros automáticos'
+      ]
+    },
+  
+    {nombre: 'Casas de cambio de divisas',
+      
+      areas: [
+          'Asesoramiento',
+          'Cambio de divisas',
+          'Compra y venta',
+          'Transferencia internacional',
+      ],
+    },
+
+    {nombre: 'Comercio',
+        
+      areas: [
+        'Alimentos congelados',
         'Alimentos gourmet',
         'Alimentos orgánicos',
+        'Almacén',
         'Antigüedades',
         'Arte',
         'Artesanías',
+        'Autoservicio',
+        'Bazar',
         'Bicicletas',
         'Bricolaje',
         'Calzado',
         'Camping',
         'Carnicería',
+        'Catering',
         'Chocolatería',
         'Comida para llevar',
         'Comida rápida',
         'Comida sin gluten',
         'Cosméticos',
         'Deportes',
+        'Distribuidoras',
         'Dulces',
+        'Electrodomésticos',
         'Electrónica',
         'Ferretería',
         'Florería',
+        'Fotocopias',
         'Fotografía',
         'Frutería',
+        'Heladerías',
+        'Herborerías y dietéticas',
         'Informática',
         'Inmuebles',
+        'Insumos para el armado de bijouterie',
         'Jardinería',
         'Juguetes',
+        'Lanas e hilados',
+        'Lavadero de autos',
+        'Lavandería',
         'Librería',
         'Mascotas',
         'Mercado',
+        'Mercerías',
+        'Mini mercado',
+        'Moda intervenida',
         'Muebles',
         'Música',
         'Óptica',
+        'Panaderías',
+        'Pañalerías',
         'Patinaje',
+        'Perfumerías',
         'Pescadería',
+        'Pinturería',
         'Productos naturales',
+        'Puestos de diarios y revistas',
         'Regalos',
         'Repostería',
         'Ropa',
+        'Santerías',
         'Segunda mano',
+        'Servicios de limpieza',
         'Supermercado',
         'Surf',
         'Té y café',
@@ -56,8 +111,9 @@ export class CategoriasService {
         'Vinos y licores',
       ],
     },
-    {
-      nombre: 'Deporte',
+    
+    {nombre: 'Deporte',
+      
       areas: [
         'Atletismo',
         'Baloncesto',
@@ -90,8 +146,9 @@ export class CategoriasService {
         'Voleibol',
       ],
     },
-    {
-      nombre: 'Educación',
+    
+    {nombre: 'Educación',
+      
       areas: [
         'Academias de idiomas',
         'Academias de música',
@@ -117,13 +174,15 @@ export class CategoriasService {
         'Universidades',
       ],
     },
-    {
-      nombre: 'Entretenimiento',
+    
+    {nombre: 'Entretenimiento',
+      
       areas: [
         'Actividades al aire libre',
         'Animación infantil',
         'Arcades',
         'Bares de karaoke',
+        'Bowling',
         'Cines',
         'Clubes nocturnos',
         'Conciertos',
@@ -135,6 +194,7 @@ export class CategoriasService {
         'Gimnasios de escalada',
         'Juegos de mesa',
         'Juegos mecánicos',
+        'Painball',
         'Parques acuáticos',
         'Parques de diversiones',
         'Parques temáticos',
@@ -146,8 +206,9 @@ export class CategoriasService {
         'Zoológicos',
       ],
     },
-    {
-      nombre: 'Estética y Belleza',
+    
+    {nombre: 'Estética y Belleza',
+      
       areas: [
         'Armonización',
         'Aromaterapia',
@@ -247,8 +308,36 @@ export class CategoriasService {
         'Ventas',
       ],
     },
-    {
-      nombre: 'Moda',
+    
+    {nombre: 'Hotelería y alojamiento',
+        
+      areas: [
+        'Agencias de turismo',
+        'AIRBNB',
+        'Alquileres',
+        'Apartamentos',
+        'Asesoramiento',
+        'Booking.com',
+        'Boutique',
+        'Cabañas',
+        'Despegar.com',
+        'Hoteles',
+        'Hoteles.com',
+        'Inter Patagonia',
+        'Paquetes turísticos',
+        'Planificación de viajes',
+        'Plataformas',
+        'Reservas',
+        'SolBooking',
+        'Tours guiados',
+        'Trivago',
+        'TurismoCity',
+        'VRBO (ex Homeaway)',
+      ],
+    },
+
+    {nombre: 'Moda',
+      
       areas: [
         'Accesorios',
         'Bisutería',
@@ -288,8 +377,34 @@ export class CategoriasService {
         'Zapatería',
       ],
     },
-    {
-      nombre: 'Salud',
+
+    {nombre: 'Oficios',
+        
+      areas: [
+        'Albañil',
+        'Artista',
+        'Carpintero',
+        'Cerrajero',
+        'Consultores',
+        'Corredores de bienes inmuebles',
+        'Decoración de eventos',
+        'Decorador de interiores',
+        'Diseñador gráfico',
+        'Economista',
+        'Electricista',
+        'Escritores',
+        'Fotógrafo',
+        'Gasista',
+        'Pintor',
+        'Plomero',
+        'Soldador',
+        'Traductor',
+        'Zinguería',
+      ],
+    },
+    
+    {nombre: 'Salud',
+      
       areas: [
         'Alergista',
         'Anatomía patológica',
@@ -299,6 +414,7 @@ export class CategoriasService {
         'Cardiología',
         'Centro de cirugía plástica y reparadora',
         'Centro oncológico',
+        'Centros de meditación',
         'Centros de salud municipal',
         'Cirugía cardiovascular',
         'Cirugía general',
@@ -322,6 +438,7 @@ export class CategoriasService {
         'Endocrinólogo',
         'Especialista en hombros y rodillas',
         'Estimulación temprana',
+        'Farmacias',
         'Fisiatría',
         'Flebología',
         'Fonoaudiología',
@@ -366,12 +483,40 @@ export class CategoriasService {
         'Reumatología',
         'Sanatorio',
         'Servicio de ortopedia y traumatología',
+        'Terapias alternativas',
+        'Terapias holísticas',
         'Traumatología',
         'Urología',
       ],
     },
-    {
-      nombre: 'Tecnología',
+
+    {nombre: 'Servicios de pagos y recaudación',
+        
+      areas: [
+        'Pago Fácil',
+        'Pronto Pago',
+        'RapiPago',
+        'Santa Fe Plus',
+      ],
+    },
+    
+    {nombre: 'Servicios de reparación',
+      
+      areas: [
+          'Automóviles',
+          'Calzado',
+          'Club de reparadores',
+          'Dispositivos electrónicos',
+          'Electrodomésticos',
+          'Lavarropas',
+          'Muebles',
+          'Nebulizadores',
+          'Ropa',
+      ],
+    },
+
+    {nombre: 'Tecnología',
+      
       areas: [
         'Accesorios',
         'Audio',
@@ -408,6 +553,7 @@ export class CategoriasService {
         'Ventas',
       ],
     },
+    
     // Agrega más categorías y áreas según necesites
   ];
 
