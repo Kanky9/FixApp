@@ -14,9 +14,9 @@ app-menu{
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: start;
+  justify-content: center;
   text-align: start;
-  align-items: start;
+  align-items: center;
   
   .cont-title{
     margin-top: 50px;
@@ -96,7 +96,7 @@ app-menu{
 
     width: 90vw;
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     margin-bottom: -20px;
 
     .boton-favorito{
@@ -133,5 +133,72 @@ app-menu{
   
   .item:last-child {
     border-bottom: none; 
+  }
+}
+
+/* Estilos responsive */
+@media (min-width:700px) {
+  .cont-logo {
+
+    .logo {
+      display: block;
+      width: 230px;
+      height: 230px;
+    }
+  }
+
+  .discover-container {
+
+    .item {
+      width: 80vw;
+    }
+
+    .cont-title{
+
+      h3 {
+        font-size: 28px;
+      }
+    }
+
+    /* Estilos para la imagen */
+    .cont-img {
+      margin-right: 10px;
+      width: 200px; /* Ancho fijo */
+      height: 200px; /* Altura fija */
+    } 
+
+    /* Estilos para los detalles */
+    .details{
+
+      h2 { 
+        font-size: 22px;
+      }
+
+      p {
+        font-size: 18px;
+      } 
+    }
+
+    .cont-botones{
+
+      width: 97vw;      
+
+      .boton-favorito{
+
+        ion-icon{
+          font-size: 38px;
+          
+        }
+      } 
+      .cont-botonmas{
+        width: 30px;
+        height: 28px;
+
+        .botonmas {
+          font-size: 30px;
+          
+        }
+      } 
+    }
   }
 }
