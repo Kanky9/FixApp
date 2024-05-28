@@ -3,16 +3,129 @@ ion-content {
   margin-top: 15px;
   padding-top: 10px;
   width: 100%;
-  
-  app-menu{
-    z-index: 100000;
-  }
-
-  .cont{
-    margin-top: 4rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
 }
 
+app-menu {
+  z-index: 100000;
+}
+
+.cont {
+  margin-top: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cont-info {
+  padding-top: 15px;
+  background: #252A2F;
+  width: 90vw;
+  height: 100vh;
+}
+
+.carousel-container {
+  position: relative;
+  margin: auto;
+  text-align: center;
+  width: 90%;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px #000000;
+}
+
+.carousel-container img {
+  display: none;
+  border-radius: 20px;
+  width: 100%; /* Ajuste para asegurar que la imagen utilice el 100% del contenedor */
+  height: auto; /* Mantiene la proporción de aspecto */
+}
+
+.carousel-container .image-active {
+  display: block;
+  width: 100%;
+  height: auto; /* Mantiene la proporción de aspecto */
+}
+
+.carousel-dot-container {
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 0;
+  margin-bottom: 1rem;
+}
+
+.dot {
+  align-items: end;
+  cursor: pointer;
+  height: 13px;
+  width: 13px;
+  margin: 0 5px;
+  background: #ffffff;
+  border-radius: 50%;
+  display: inline-block;
+  transition: opacity .6s ease;
+  opacity: .5;
+}
+
+.dot.active {
+  opacity: 1;
+}
+
+.dot:hover {
+  opacity: 1;
+}
+
+.cont-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cont-title h2 {
+  color: #ffffff;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.cont-subtitle {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding-left: 15px;
+}
+
+.cont-subtitle p {
+  color: #ffffff;
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+/* Estilos responsive */
+@media (min-width: 768px) {
+  .carousel-container {
+    box-shadow: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .carousel-container img {
+    text-align: center;
+    width: 500px; /* Establece el ancho de las imágenes */
+    height: auto; /* Mantiene la proporción de aspecto */
+    box-shadow: 0 8px 16px #000000;
+  }
+
+  .carousel-container .image-active {
+    text-align: center;
+    width: 500px; /* Establece el ancho de la imagen activa */
+    height: auto; /* Mantiene la proporción de aspecto */
+    box-shadow: 0 8px 16px #000000;
+  }
+}

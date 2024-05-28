@@ -1,29 +1,28 @@
-<ion-content>  
-
+<ion-content>
   <app-menu [showBackButton]="true" backButton="/home"></app-menu>
-
   <div class="cont" *ngIf="publicacion">
-    <ion-card>
-      <img [src]="publicacion.imagePrincipal" alt="Imagen de producto">
-      <ion-card-header>
-        <ion-card-title>{{ publicacion.nombre }}</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        <ion-row>
-          <ion-col size="6" *ngFor="let imagen of publicacion.imagenes">
-            <img [src]="imagen" alt="Imagen">
-          </ion-col>
-        </ion-row>
+    <div class="cont-info">
+      <div class="carousel-container" *ngIf="image && image.length > 0">
+        <img *ngFor="let imagen of image; let i = index" [src]="imagen" alt="Imagen"
+          [ngClass]="{'image-active': selectedIndex === i}">
 
+        <div *ngIf="indicators" class="carousel-dot-container">
+          <span *ngFor="let dot of image; let i = index" class="dot" [ngClass]="{'active': selectedIndex === i}"
+            (click)="selectImage(i)">
+          </span>
+        </div>
+      </div>
+      <div class="cont-title">
+        <h2>{{ publicacion.nombre }}</h2>
+      </div>
+      <div class="cont-subtitle">
         <p><strong>Categoría:</strong> {{ publicacion.categoria }}</p>
         <p><strong>Área:</strong> {{ publicacion.area }}</p>
         <p><strong>Ubicación:</strong> {{ publicacion.ubicacion }}</p>
         <p><strong>Dirección:</strong> {{ publicacion.direccion }}</p>
         <p><strong>Teléfono:</strong> {{ publicacion.telefono }}</p>
         <p><strong>Descripción:</strong> {{ publicacion.descripcion }}</p>
-
-      </ion-card-content>
-    </ion-card>
+      </div>
+    </div>
   </div>
-
 </ion-content>
