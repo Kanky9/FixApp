@@ -22,10 +22,16 @@ app-menu{
   }
 }
 
+  .loading{
+    z-index: 0;
+  }
+
 .search-container {
   margin-top: -50px;
   display: flex;
   justify-content: center;
+
+  
 
   ion-item {
     

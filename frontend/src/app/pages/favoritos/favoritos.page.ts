@@ -1,5 +1,6 @@
 import { Component, inject, Input, OnInit } from '@angular/core';
 import { DocumentData } from '@angular/fire/compat/firestore';
+import { Router } from '@angular/router';
 import { Product } from 'src/app/models/product.model';
 import { User } from 'src/app/models/user.model';
 import { FirebaseService } from 'src/app/services/firebase.service';
@@ -13,6 +14,7 @@ import { UtilsService } from 'src/app/services/utils.service';
 export class FavoritosPage  implements OnInit{
   firebaseSvc = inject(FirebaseService); 
   utilsSvc = inject(UtilsService); 
+  router = inject(Router);
 
   favoriteProducts: Product[] = [];
   loading: boolean = false; 
@@ -70,6 +72,10 @@ export class FavoritosPage  implements OnInit{
         });
       }
     }
+  }
+
+  goToPublicacion(productId: string) {
+    this.router.navigate(['/publicacion', productId]);
   }
 
   async doRefresh(event) {
