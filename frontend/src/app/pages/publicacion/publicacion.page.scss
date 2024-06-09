@@ -106,6 +106,10 @@ app-menu {
   margin-top: 10px;
 }
 
+.descripcion {
+  white-space: pre-wrap; /* Esto asegura que los saltos de línea se mantengan */
+}
+
 /* Estilos responsive */
 @media (min-width: 768px) {
   .carousel-container {

@@ -72,10 +72,15 @@
       <!--  ========== Descripción ========== -->
       <ion-item counter="true" required>
         <ion-label position="floating">Descripción:</ion-label>
-        <ion-textarea maxlength="2500" [formControl]="form.controls.descripcion" rows="10"></ion-textarea>
+        <ion-textarea 
+          maxlength="2500" 
+          [formControl]="form.controls.descripcion" 
+          rows="10"
+        ></ion-textarea>
         <div slot="helper">Ingresa texto</div>
         <div slot="error">La descripción es requerida</div>
       </ion-item>
+      <div [innerHTML]="getSanitizedHtml(form.controls.descripcion.value)"></div>
 
       <!--  ========== Ubicación ==========  -->
       <app-custom-input autocomplete="ubicacion" [control]="form.controls.ubicacion" type="text"

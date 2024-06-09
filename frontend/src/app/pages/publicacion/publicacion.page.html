@@ -21,7 +21,7 @@
         <p><strong>Ubicación:</strong> {{ publicacion.ubicacion }}</p>
         <p><strong>Dirección:</strong> {{ publicacion.direccion }}</p>
         <p><strong>Teléfono:</strong> {{ publicacion.telefono }}</p>
-        <p><strong>Descripción:</strong> {{ publicacion.descripcion }}</p>
+        <p class="descripcion"><strong>Descripción:</strong> <span [innerHTML]="getSanitizedHtml(publicacion.descripcion)"></span></p>
       </div>
     </div>
   </div>

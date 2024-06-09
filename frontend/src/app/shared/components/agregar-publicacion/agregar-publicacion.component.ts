@@ -1,5 +1,6 @@
-import { Component, inject, Input, OnInit } from '@angular/core';
+import { Component, inject, OnInit, SecurityContext } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { DomSanitizer } from '@angular/platform-browser';
 import { Product } from 'src/app/models/product.model';
 import { User } from 'src/app/models/user.model';
 import { CategoriasService } from 'src/app/services/categorias.service';
@@ -28,7 +29,8 @@ export class AgregarPublicacionComponent implements OnInit {
 
   firebaseSvc = inject(FirebaseService);
   utilsSvc = inject(UtilsService);
-  categoriasSvc = inject(CategoriasService); 
+  categoriasSvc = inject(CategoriasService);
+  sanitizer = inject(DomSanitizer);
 
   user = {} as User;
   product = {} as Product;
@@ -40,7 +42,6 @@ export class AgregarPublicacionComponent implements OnInit {
     this.user = this.utilsSvc.getFromLocalStorage('user');
     this.categorias = this.categoriasSvc.getCategorias();
   }
-
 
 
   getCategoriaAreas(categoriaNombre: string): string[] {
@@ -185,5 +186,13 @@ export class AgregarPublicacionComponent implements OnInit {
     const imagePath = `${this.user.uid}/${Date.now()}`;
     await this.firebaseSvc.uploadImage(imagePath, dataUrl);
     return imagePath;
+  }
+
+  transformNewLinesToBr(text: string): string {
+    return text.replace(/\n/g, '<br>');
+  }
+
+  getSanitizedHtml(text: string) {
+    return this.sanitizer.sanitize(SecurityContext.HTML, this.transformNewLinesToBr(text));
   }
 }

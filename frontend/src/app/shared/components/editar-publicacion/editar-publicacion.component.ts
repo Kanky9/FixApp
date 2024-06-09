@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, SecurityContext } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import {FormGroup,FormBuilder,Validators,FormControl,} from '@angular/forms';
 import { Product } from 'src/app/models/product.model';
@@ -6,6 +6,7 @@ import { FirebaseService } from 'src/app/services/firebase.service';
 import { User } from 'firebase/auth';
 import { UtilsService } from 'src/app/services/utils.service';
 import { CategoriasService } from 'src/app/services/categorias.service';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-editar-publicacion',
@@ -41,6 +42,7 @@ export class EditarPublicacionComponent implements OnInit {
   firebaseSvc = inject(FirebaseService);
   utilsSvc = inject(UtilsService);
   categoriasSvc = inject(CategoriasService);
+  sanitizer = inject(DomSanitizer);
  
   ngOnInit(): void {
     this.user = this.utilsSvc.getFromLocalStorage('user');
@@ -171,5 +173,14 @@ export class EditarPublicacionComponent implements OnInit {
       // Resetea el área seleccionada cuando cambia la categoría
       this.form.get('area').patchValue('');
     }
+  }
+
+  transformNewLinesToBr(text: string): string {
+    return text.replace(/\n/g, '<br>');
+  }
+
+  getSanitizedHtml(text: string) {
+    const transformedText = this.transformNewLinesToBr(text);
+    return this.sanitizer.sanitize(SecurityContext.HTML, transformedText);
   }
 }
