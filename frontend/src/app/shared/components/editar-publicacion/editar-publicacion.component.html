@@ -80,7 +80,6 @@
         <div slot="helper">Ingresa texto</div>
         <div slot="error">La descripción es requerida</div>
       </ion-item>
-      <div [innerHTML]="getSanitizedHtml(form.controls.descripcion.value)"></div>
 
       <!--  ========== Ubicación ==========  -->
       <app-custom-input autocomplete="ubicacion" [control]="form.controls.ubicacion" type="text"
