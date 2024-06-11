@@ -1,4 +1,5 @@
-import { Component, inject, Input, OnInit } from '@angular/core';
+import { Component, inject, Input, OnInit, SecurityContext } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { Product } from 'src/app/models/product.model';
 import { FirebaseService } from 'src/app/services/firebase.service';
@@ -19,6 +20,7 @@ export class PublicacionPage implements OnInit {
 
   route = inject(ActivatedRoute);
   firebaseSvc = inject(FirebaseService);
+  sanitizer = inject(DomSanitizer);
 
   ngOnInit() {
     this.publicacionId = this.route.snapshot.paramMap.get('productId');
@@ -41,5 +43,14 @@ export class PublicacionPage implements OnInit {
 
   selectImage(index: number): void {
     this.selectedIndex = index;
+  }
+
+  transformNewLinesToBr(text: string): string {
+    return text.replace(/\n/g, '<br>');
+  }
+
+  getSanitizedHtml(text: string) {
+    const transformedText = this.transformNewLinesToBr(text);
+    return this.sanitizer.sanitize(SecurityContext.HTML, transformedText);
   }
 }

@@ -69,6 +69,3 @@ Thumbs.db
 
 # Ignorar environments
 /src/environments/
-
-# Ignorar id api android
-/android/app/google-services.json
