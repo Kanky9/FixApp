@@ -16,12 +16,13 @@
       </ion-item>
     </div>
 
-    <div class="discover-container">
-      <div class="cont-title">
-        <h3 *ngIf="!searchText">Descubre</h3>
-        <h3 *ngIf="searchText && filteredProducts.length">Resultados para: "{{ searchText }}"</h3>
-        <h3 *ngIf="searchText && !filteredProducts.length">No se encontraron resultados para: "{{ searchText }}"</h3>
-      </div>
+    <div class="cont-title">
+      <h3 *ngIf="!searchText">Descubre</h3>
+      <h3 *ngIf="searchText && filteredProducts.length">Resultados para: "{{ searchText }}"</h3>
+      <h3 *ngIf="searchText && !filteredProducts.length">No se encontraron resultados para: "{{ searchText }}"</h3>
+    </div>
+
+    <div class="discover-container">      
 
       <!-- ========== Publicaciones ========== -->
       <div class="item" *ngFor="let p of filteredProducts">

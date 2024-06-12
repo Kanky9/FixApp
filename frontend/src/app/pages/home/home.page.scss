@@ -6,7 +6,7 @@ ion-content {
   width: 100%;
 }
 
-app-menu{
+app-menu {
   z-index: 100000;
 }
 
@@ -22,24 +22,24 @@ app-menu{
   }
 }
 
-  .loading{
-    z-index: 0;
-  }
+.loading {
+  z-index: 0;
+}
 
 .search-container {
   margin-top: -50px;
   display: flex;
   justify-content: center;
 
-  
+
 
   ion-item {
-    
+
     width: 90%;
     border-radius: 25px;
     --background: #f2f0f4;
   }
-  
+
   ion-input[type="text"] {
     width: 100%;
     border: none;
@@ -59,18 +59,7 @@ app-menu{
   }
 }
 
-.discover-container {
-  min-height: 500px;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: start;
-  align-items: center;
-  
-  
-
-  .cont-title{
+.cont-title {
     width: 100vw;
     display: flex;
     justify-content: center;
@@ -86,11 +75,16 @@ app-menu{
       letter-spacing: 1px;
       margin-bottom: 20px;
     }
-
-    
   }
 
-  
+.discover-container {
+  min-height: 500px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: start;
+  align-items: center;
 
   .item {
     display: flex;
@@ -104,20 +98,26 @@ app-menu{
   /* Estilos para la imagen */
   .cont-img {
     margin-right: 10px;
-    width: 130px; /* Ancho fijo */
-    height: 130px; /* Altura fija */
+    width: 130px;
+    /* Ancho fijo */
+    height: 130px;
+    /* Altura fija */
     border-radius: 10px;
-    overflow: hidden; /* Esto asegura que las imágenes no se desborden del contenedor */
+    overflow: hidden;
+    /* Esto asegura que las imágenes no se desborden del contenedor */
 
     img {
-      width: 100%; /* Ajusta el ancho de la imagen al 100% del contenedor */
-      height: 100%; /* Ajusta la altura de la imagen al 100% del contenedor */
-      object-fit: cover; /* Cubre el área del contenedor manteniendo la relación de aspecto */
-    } 
-  } 
+      width: 100%;
+      /* Ajusta el ancho de la imagen al 100% del contenedor */
+      height: 100%;
+      /* Ajusta la altura de la imagen al 100% del contenedor */
+      object-fit: cover;
+      /* Cubre el área del contenedor manteniendo la relación de aspecto */
+    }
+  }
 
   /* Estilos para los detalles */
-  .details{
+  .details {
     margin-top: 0;
     margin-left: 10px;
     flex: 1;
@@ -125,7 +125,7 @@ app-menu{
     flex-direction: column;
     gap: 5px;
 
-    h2 { 
+    h2 {
       font-size: 17px;
       margin-bottom: 5px;
       color: #f3f3f3;
@@ -136,23 +136,23 @@ app-menu{
       margin: 0;
       font-size: 12px;
       color: #f3f3f3;
-    
+
       span {
         font-size: 14px;
         font-weight: bold;
       }
 
-    } 
+    }
   }
 
-  .cont-botones{
+  .cont-botones {
 
     width: 90vw;
     display: flex;
     justify-content: flex-end;
     margin-bottom: -20px;
 
-    .boton-favorito{
+    .boton-favorito {
       z-index: 1000000;
       background-color: transparent;
       border: none;
@@ -160,13 +160,14 @@ app-menu{
       cursor: pointer;
       margin-right: 10px;
 
-      ion-icon{
+      ion-icon {
         font-size: 28px;
         color: red;
-        
+
       }
-    } 
-    .cont-botonmas{
+    }
+
+    .cont-botonmas {
       z-index: 1000000;
       cursor: pointer;
       margin-right: 10px;
@@ -176,24 +177,35 @@ app-menu{
       .botonmas {
         font-size: 24px;
         background: #7b2cdc;
-        color: #ffffff; 
-        border: none; 
-        border-radius: 35%; 
+        color: #ffffff;
+        border: none;
+        border-radius: 35%;
         padding: 1px 5px 1.5px 5px;
-        outline: none; 
-        
+        outline: none;
+
       }
-    } 
+    }
   }
-  
+
   .item:last-child {
-    border-bottom: none; 
+    border-bottom: none;
   }
 }
 
-/* Estilos responsive */
-@media (min-width:700px) {
+
+/* Estilos responsive web */
+@media (min-width: 700px) {
+
+  .loading{
+    display: none;
+  }
+
+  /* Contenedor de logo */
   .cont-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
 
     .logo {
       display: block;
@@ -202,65 +214,130 @@ app-menu{
     }
   }
 
+  /* Contenedor de búsqueda */
   .search-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
 
     ion-item {
       width: 70%;
+      max-width: 600px;
     }
   }
 
+  .cont-title {
+    text-align: center;
+        
+    h3 {
+      font-size: 40px;
+      color: #d2d2d2;
+      margin-bottom: 10px;        
+    }
+  }
+
+  /* Contenedor de descubrimiento */
   .discover-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+    gap: 20px;
+    justify-content: center; /* Centrar los contenedores en el grid */
+    padding: 20px;
+    margin-top: 100px; /* Añadir margen superior para desplazar hacia abajo */
 
     .item {
-      width: 80vw;
-    }
-
-    .cont-title{
-
-      h3 {
-        font-size: 28px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      background: #d0d0d0;
+      border-radius: 10px;
+      box-shadow: 0 12px 24px rgba(132, 20, 236, 0.5);
+      padding: 20px;
+      transition: transform 0.3s, box-shadow 0.3s;
+      height: 100%; /* Asegurarse de que todos los items tengan la misma altura */
+      min-height: 500px; /* Altura mínima para los contenedores */
+    
+      &:hover {
+        transform: scale(1.10); /*Aumenta el tamaño del contenedor*/
+        box-shadow: 0 12px 24px rgba(132, 20, 236, 1); /*Incrementa la sombra para un efecto de elevación*/
       }
     }
+    
 
-    /* Estilos para la imagen */
-    .cont-img {
-      margin-right: 10px;
-      width: 200px; /* Ancho fijo */
-      height: 200px; /* Altura fija */
-    } 
+      /* Estilos para la imagen */
+      .cont-img {
+        display: flex;
+        margin-bottom: 20px;
+        width: 200px;
+        height: 200px;
+        border-radius: 10px;
+        overflow: hidden;
 
-    /* Estilos para los detalles */
-    .details{
-
-      h2 { 
-        font-size: 22px;
-      }
-
-      p {
-        font-size: 18px;
-      } 
-    }
-
-    .cont-botones{
-
-      width: 97vw;
-
-      .boton-favorito{
-
-        ion-icon{
-          font-size: 38px;
-          
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
         }
-      } 
-      .cont-botonmas{
-        width: 30px;
-        height: 28px;
+      }
+
+      /* Estilos para los detalles */
+      .details {
+        text-align: start;
+        flex-grow: 1; /* Permite que el contenido crezca para llenar el espacio */
+
+        h2 {
+          font-size: 22px;
+          color: #000;
+          margin-bottom: 10px;
+        }
+
+        p {
+          font-size: 18px;
+          color: #424242;
+        }
+      }
+
+      .cont-botones {
+        transform: translateY(60vh);
+        display: flex;
+        justify-content: end;
+        align-items: end;
+        gap: 5px; /* Espacio entre los botones */
+        width: 100%;
+
+        .boton-favorito {
+          ion-icon {
+            font-size: 40px;
+            color: #ff0000;
+            transition: color 0.3s;
+            transform: translateY(.5vh);
+            &:hover {
+              color: #e60000;
+            }
+          }
+        }
+
+      .cont-botonmas {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        background: #7b2cdc;
+        color: #fff;
+        cursor: pointer;
+        transition: background 0.3s;
 
         .botonmas {
           font-size: 30px;
-          
         }
-      } 
+
+        &:hover {
+          background: #6600cc;
+        }
+      }
     }
   }
 }
