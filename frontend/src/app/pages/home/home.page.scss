@@ -299,10 +299,10 @@ app-menu {
       }
 
       .cont-botones {
-        transform: translateY(60vh);
+        transform: translateY(950%);
         display: flex;
-        justify-content: end;
-        align-items: end;
+        justify-content: flex-end;
+        align-items: flex-end;
         gap: 5px; /* Espacio entre los botones */
         width: 100%;
 
