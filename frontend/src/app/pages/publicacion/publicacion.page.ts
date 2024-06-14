@@ -17,6 +17,15 @@ export class PublicacionPage implements OnInit {
   image: string[] = [];
   selectedIndex = 0;
 
+  touchStartX = 0;
+  touchEndX = 0;
+  swipeThreshold = 50; // Umbral para considerar un deslizamiento
+
+  mouseStartX = 0;
+  mouseEndX = 0;
+  isMouseDown = false;
+
+
   @Input() indicators = true; 
 
   route = inject(ActivatedRoute);
@@ -45,6 +54,54 @@ export class PublicacionPage implements OnInit {
 
   selectImage(index: number): void {
     this.selectedIndex = index;
+  }
+
+  onTouchStart(event: TouchEvent): void {
+    this.touchStartX = event.changedTouches[0].screenX;
+  }
+
+  onTouchMove(event: TouchEvent): void {
+    this.touchEndX = event.changedTouches[0].screenX;
+  }
+
+  onTouchEnd(): void {
+    if (this.touchEndX < this.touchStartX - this.swipeThreshold) {
+      this.nextImage();
+    } else if (this.touchEndX > this.touchStartX + this.swipeThreshold) {
+      this.prevImage();
+    }
+  }
+
+  nextImage(): void {
+    if (this.selectedIndex < this.image.length - 1) {
+      this.selectedIndex++;
+    }
+  }
+
+  prevImage(): void {
+    if (this.selectedIndex > 0) {
+      this.selectedIndex--;
+    }
+  }
+
+  onMouseDown(event: MouseEvent): void {
+    this.isMouseDown = true;
+    this.mouseStartX = event.screenX;
+  }
+
+  onMouseMove(event: MouseEvent): void {
+    if (this.isMouseDown) {
+      this.mouseEndX = event.screenX;
+    }
+  }
+
+  onMouseUp(): void {
+    this.isMouseDown = false;
+    if (this.mouseEndX < this.mouseStartX - this.swipeThreshold) {
+      this.nextImage();
+    } else if (this.mouseEndX > this.mouseStartX + this.swipeThreshold) {
+      this.prevImage();
+    }
   }
 
   transformNewLinesToBr(text: string): string {

@@ -2,16 +2,32 @@
   <app-menu [showBackButton]="true" backButton="/home"></app-menu>
   <div class="cont" *ngIf="publicacion">
     <div class="cont-info">
-      <div class="carousel-container" *ngIf="image && image.length > 0">
-        <img *ngFor="let imagen of image; let i = index" [src]="imagen" alt="Imagen"
-          [ngClass]="{'image-active': selectedIndex === i}">
+      <div 
+        class="carousel-container" 
+        *ngIf="image && image.length > 0" 
+        (touchstart)="onTouchStart($event)"
+        (touchmove)="onTouchMove($event)" 
+        (touchend)="onTouchEnd()"
+        (mousedown)="onMouseDown($event)"
+        (mousemove)="onMouseMove($event)"
+        (mouseup)="onMouseUp()"
+      >
+        <img 
+          *ngFor="let imagen of image; let i = index" 
+          [src]="imagen" 
+          alt="Imagen"
+          [ngClass]="{'image-active': selectedIndex === i}"
+        >
+        
+        <br>
+        <br>
 
-          <br>
-          <br>
         <div *ngIf="indicators" class="carousel-dot-container">
-          <span *ngFor="let dot of image; let i = index" class="dot" [ngClass]="{'active': selectedIndex === i}"
-            (click)="selectImage(i)">
-          </span>
+          <div class="dot-cont">
+            <span *ngFor="let dot of image; let i = index" class="dot" [ngClass]="{'active': selectedIndex === i}"
+              (click)="selectImage(i)">
+            </span>
+          </div>
         </div>
       </div>
       <br>
