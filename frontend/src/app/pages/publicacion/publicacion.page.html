@@ -6,23 +6,33 @@
         <img *ngFor="let imagen of image; let i = index" [src]="imagen" alt="Imagen"
           [ngClass]="{'image-active': selectedIndex === i}">
 
+          <br>
+          <br>
         <div *ngIf="indicators" class="carousel-dot-container">
           <span *ngFor="let dot of image; let i = index" class="dot" [ngClass]="{'active': selectedIndex === i}"
             (click)="selectImage(i)">
           </span>
         </div>
       </div>
+      <br>
+      <br>
       <div class="cont-title">
         <h2>{{ publicacion.nombre }}</h2>
       </div>
       <div class="cont-subtitle">
         <p><strong>Categoría:</strong> {{ publicacion.categoria }}</p>
         <p><strong>Área:</strong> {{ publicacion.area }}</p>
+        <p><strong>Teléfono:</strong> {{ publicacion.telefono }}</p>
         <p><strong>Ubicación:</strong> {{ publicacion.ubicacion }}</p>
         <p><strong>Dirección:</strong> {{ publicacion.direccion }}</p>
-        <p><strong>Teléfono:</strong> {{ publicacion.telefono }}</p>
+        <ion-button color="light" (click)="abrirEnGoogleMaps(publicacion.ubicacion, publicacion.direccion)">Ver en Google Maps</ion-button>
+        
+        <div class="desc-cont">
+          <p class="Descripcion-title"><strong>Descripción</strong></p>
+        </div>
+        <br>
+        <p class="descripcion"><span [innerHTML]="getSanitizedHtml(publicacion.descripcion)"></span></p>
 
-        <p class="descripcion"><strong>Descripción:</strong> <br> <br> <span [innerHTML]="getSanitizedHtml(publicacion.descripcion)"></span></p>
       </div>
     </div>
   </div>

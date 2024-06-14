@@ -55,7 +55,7 @@ app-menu {
   justify-content: center;
   align-items: flex-end;
   padding: 0;
-  margin-bottom: 1rem;
+  margin-top: 1rem;
 }
 
 .dot {
@@ -69,6 +69,7 @@ app-menu {
   display: inline-block;
   transition: opacity .6s ease;
   opacity: .5;
+  margin-bottom: 1rem;
 }
 
 .dot.active {
@@ -105,6 +106,19 @@ app-menu {
   font-size: 18px;
   margin-top: 10px;
 }
+
+.desc-cont{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  
+  .Descripcion-title{
+    text-align: center;
+  }
+}
+
 
 .descripcion {
   white-space: pre-wrap; /* Esto asegura que los saltos de línea se mantengan */
