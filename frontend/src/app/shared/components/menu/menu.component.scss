@@ -6,15 +6,14 @@ ion-menu {
   
   /* header menu desplegable */
   ion-toolbar {
-    --background: linear-gradient(0deg,#6a3fa3, #d3d5d7);//#b186dec2
+    --background: linear-gradient(0deg,#e5ddeb, #2f353b);//#b186dec2
   }
 
 
   /* Fondo del menu despleable*/
   .ion-padding {
    
-    --background: #6a3fa3; 
-    
+    --background: #e5ddeb; 
     
     ion-menu-toggle{
       /* botones */

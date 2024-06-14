@@ -10,15 +10,29 @@ app-menu {
   z-index: 100000;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
 .cont-logo {
   display: flex;
   justify-content: center;
   margin-top: 20px;
+}
 
-  .logo {
-    display: block;
-    width: 170px;
-    height: 170px;
+.cont-logo .logo {
+  display: block;
+  width: 170px;
+  height: 170px;
+  animation: pulseOpacity 5s infinite ease-in-out;
+}
+
+@keyframes pulseOpacity {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0;
   }
 }
 
@@ -161,7 +175,7 @@ app-menu {
       margin-right: 10px;
 
       ion-icon {
-        font-size: 28px;
+        font-size: 24px;
         color: red;
 
       }
@@ -175,14 +189,13 @@ app-menu {
       height: 20px;
 
       .botonmas {
-        font-size: 24px;
-        background: #7b2cdc;
+        font-size: 20px;
+        background: #1974a9;
         color: #ffffff;
         border: none;
-        border-radius: 35%;
+        border-radius: 50%;
         padding: 1px 5px 1.5px 5px;
         outline: none;
-
       }
     }
   }
@@ -263,7 +276,6 @@ app-menu {
         box-shadow: 0 12px 24px rgba(132, 20, 236, 1); /*Incrementa la sombra para un efecto de elevación*/
       }
     }
-    
 
       /* Estilos para la imagen */
       .cont-img {
@@ -325,7 +337,7 @@ app-menu {
         justify-content: center;
         align-items: center;
         border-radius: 50%;
-        background: #7b2cdc;
+        background: #1974a9;
         color: #fff;
         cursor: pointer;
         transition: background 0.3s;
@@ -335,7 +347,7 @@ app-menu {
         }
 
         &:hover {
-          background: #6600cc;
+          background: #1974a9;
         }
       }
     }

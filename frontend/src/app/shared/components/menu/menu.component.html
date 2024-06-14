@@ -19,13 +19,6 @@
         <ion-label>Iniciar sesión</ion-label>
       </ion-item>
     </ion-menu-toggle>
-
-    <ion-menu-toggle *ngIf="!showBackButton">
-      <ion-item (click)="singOut()" detail *ngIf="logInLogOut">
-        <ion-icon name="log-out-outline"></ion-icon>
-        <ion-label>Cerrar sesión</ion-label>
-      </ion-item>
-    </ion-menu-toggle>
     
     <ion-menu-toggle *ngIf="!showBackButton">
       <ion-item detail *ngIf="logInLogOut" [routerLink]="['/perfil']" routerLinkActive="active" routerDirection="root" detail>
@@ -77,7 +70,14 @@
       </ion-item>
     </ion-menu-toggle>
 
-    
+    <br>
+
+    <ion-menu-toggle *ngIf="!showBackButton">
+      <ion-item (click)="singOut()" detail *ngIf="logInLogOut">
+        <ion-icon name="log-out-outline"></ion-icon>
+        <ion-label>Cerrar sesión</ion-label>
+      </ion-item>
+    </ion-menu-toggle>
 
   </ion-content>
 </ion-menu>

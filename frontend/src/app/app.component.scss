@@ -22,12 +22,11 @@
   top: 50%; 
   left: 50%;
   transform: translate(-50%, -50%); 
-  z-index: 2; 
-  color: #ffffff;
+  z-index: 999; 
+  color: rgb(212, 212, 212);
   font-size: 35px; 
   font-weight: bold; 
-  text-shadow: 0 0 20px rgba(0, 0, 0, 0.9), 0 0 40px rgba(0, 0, 0, 0.9);
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.9), 0 0 40px rgba(255, 255, 255, 0.9);
+  text-shadow: 0 0 20px rgba(139, 81, 205, 0.9), 0 0 40px rgba(139, 81, 205, 0.9);
   white-space: nowrap;
   animation: aparecer 1s ease forwards, flotar 3s infinite alternate;
 }
