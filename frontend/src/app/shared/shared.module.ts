@@ -9,6 +9,7 @@ import { RouterLink } from '@angular/router';
 import { AgregarPublicacionComponent } from './components/agregar-publicacion/agregar-publicacion.component';
 import { EditarPublicacionComponent } from './components/editar-publicacion/editar-publicacion.component';
 import { PeticionComponent } from './components/peticion/peticion.component';
+import { EditarPerfilComponent } from './components/editar-perfil/editar-perfil.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { PeticionComponent } from './components/peticion/peticion.component';
     FooterComponent,
     AgregarPublicacionComponent,
     EditarPublicacionComponent,
-    PeticionComponent
+    PeticionComponent,
+    EditarPerfilComponent,
   ],
   exports: [
     MenuComponent,
@@ -28,7 +30,8 @@ import { PeticionComponent } from './components/peticion/peticion.component';
     RouterLink,
     AgregarPublicacionComponent,
     EditarPublicacionComponent,
-    PeticionComponent
+    PeticionComponent,
+    EditarPerfilComponent,
     
   ],
   imports: [

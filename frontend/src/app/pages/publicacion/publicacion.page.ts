@@ -112,7 +112,7 @@ export class PublicacionPage implements OnInit {
     const transformedText = this.transformNewLinesToBr(text);
     return this.sanitizer.sanitize(SecurityContext.HTML, transformedText);
   }
-
+  /* Google maps desactivado
   abrirEnGoogleMaps(ubicacion: string, direccion: string ) {
     const isMobile = this.plataform.is('cordova') || this.plataform.is('capacitor'); 
     const query = encodeURIComponent(`${ubicacion}, ${direccion}`); 
@@ -123,5 +123,5 @@ export class PublicacionPage implements OnInit {
     } else {
       window.open(googleMapsUrl, '_blank');
     }
-  }
+  }*/
 }

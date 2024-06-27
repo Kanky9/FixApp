@@ -69,3 +69,6 @@ Thumbs.db
 
 # Ignorar environments
 /src/environments/
+
+#Ignorar app android
+/android/app/google-services.json

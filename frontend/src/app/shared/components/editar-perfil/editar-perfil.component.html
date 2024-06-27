@@ -1,0 +1,47 @@
+<ion-content >
+  <app-menu [showBackButton]="true" backButton="/perfil"></app-menu>
+
+  <div class="cont">
+    
+    <form [formGroup]="editProfileForm" (ngSubmit)="submit()">
+      
+      <h1>Editar Perfil</h1>
+
+      <ion-item color="dark">
+        <ion-label  position="floating">Nombre</ion-label>
+        <ion-input formControlName="nombre"></ion-input>
+      </ion-item>
+      <ion-item color="dark">
+        <ion-label position="floating">Apellido</ion-label>
+        <ion-input formControlName="apellido"></ion-input>
+      </ion-item>
+      <!-- 
+      <ion-item color="dark">
+        <ion-label position="floating">Email</ion-label>
+        <ion-input formControlName="email" type="email"></ion-input>
+      </ion-item>
+      -->
+      <ion-item color="dark">
+        <ion-label position="floating">Teléfono</ion-label>
+        <ion-input formControlName="telefono" type="tel"></ion-input>
+      </ion-item>
+      <ion-item color="dark">
+        <ion-label position="floating">Fecha de Nacimiento</ion-label>
+        <ion-input formControlName="fecha" type="date"></ion-input>
+      </ion-item>
+      <ion-item color="dark">
+        <ion-label position="floating">DNI</ion-label>
+        <ion-input formControlName="dni"></ion-input>
+      </ion-item>
+      <ion-item color="dark">
+        <ion-label position="floating">Ubicación</ion-label>
+        <ion-input formControlName="ubicacion"></ion-input>
+      </ion-item>
+      <ion-item color="dark">
+        <ion-label position="floating">Dirección</ion-label>
+        <ion-input formControlName="direccion"></ion-input>
+      </ion-item>
+      <ion-button expand="block" type="submit" [disabled]="!editProfileForm.valid">Guardar Cambios</ion-button>
+    </form>
+  </div>
+</ion-content>

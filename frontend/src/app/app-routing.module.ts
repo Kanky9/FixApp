@@ -7,6 +7,7 @@ import { PeticionComponent } from './shared/components/peticion/peticion.compone
 import { AdminGuard } from './guards/admin.guard';
 import { EmpresaGuard } from './guards/empresa.guard';
 import { AgregarPublicacionComponent } from './shared/components/agregar-publicacion/agregar-publicacion.component';
+import { EditarPerfilComponent } from './shared/components/editar-perfil/editar-perfil.component';
 
 const routes: Routes = [
   {
@@ -69,7 +70,11 @@ const routes: Routes = [
     path: 'favoritos',
     loadChildren: () => import('./pages/favoritos/favoritos.module').then( m => m.FavoritosPageModule)
   },
-  
+
+  {
+    path: 'editar-perfil',
+    component: EditarPerfilComponent
+  },
 ];
 
 @NgModule({

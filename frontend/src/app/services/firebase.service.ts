@@ -1,21 +1,22 @@
 import { inject, Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth'; 
-import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, updateProfile, sendPasswordResetEmail }  from 'firebase/auth';
+import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, updateProfile, sendPasswordResetEmail, updateEmail as firebaseUpdateEmail, sendEmailVerification, updateEmail }  from 'firebase/auth';
 import { User } from '../models/user.model';
-import { AngularFirestore, DocumentData,  } from '@angular/fire/compat/firestore';
-import { getFirestore, setDoc, doc, getDoc, addDoc, collection, collectionData, query, deleteDoc, updateDoc, DocumentSnapshot, DocumentReference } from '@angular/fire/firestore';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { getFirestore, setDoc, doc, getDoc, addDoc, collection, collectionData, query, deleteDoc } from '@angular/fire/firestore';
 import { UtilsService } from './utils.service';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
 import { getStorage, uploadString, ref, getDownloadURL } from 'firebase/storage'; 
 import { Product } from '../models/product.model';
 import firebase from 'firebase/compat/app';
-import { Observable, from } from 'rxjs';
-import { map, switchMap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
 })
 export class FirebaseService {
+
+   private pendingEmailUpdate: string | null = null;
+
 
   // Injecting necessary services
   auth = inject(AngularFireAuth);
@@ -90,8 +91,6 @@ export class FirebaseService {
   updateProduct(productId: string, data: any) {
     return this.firestore.doc(`products/${productId}`).update(data);
   }
-
-
 
   /* ========== Eliminar un producto ========== */
   deleteProduct(productId: string) {
@@ -170,5 +169,4 @@ export class FirebaseService {
     const doc = await this.firestore.collection('publications').doc(id).get().toPromise();
     return doc.data();
   }
-
 }

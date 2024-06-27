@@ -1,0 +1,22 @@
+ion-content{
+    --background: #252A2F;
+
+   
+    app-menu{
+        z-index: 100000;
+    }
+
+    .cont{
+        margin-top: 4rem;
+
+        h1{
+            color: #f3f3f3;
+            text-align: center;
+        }
+
+        ion-item{
+            margin-bottom: 5px;
+            border-bottom: 1px solid #f3f3f3;
+        }
+    }
+}

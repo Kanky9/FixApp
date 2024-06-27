@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
 ion-content {
   --background: #252A2F;
   margin-top: 15px;
@@ -9,8 +11,6 @@ ion-content {
 app-menu {
   z-index: 100000;
 }
-
-@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 
 .cont-logo {
   display: flex;
@@ -44,8 +44,6 @@ app-menu {
   margin-top: -50px;
   display: flex;
   justify-content: center;
-
-
 
   ion-item {
 
@@ -184,17 +182,14 @@ app-menu {
     .cont-botonmas {
       z-index: 1000000;
       cursor: pointer;
-      margin-right: 10px;
-      width: 20px;
-      height: 20px;
+      margin-right: 20px;
 
       .botonmas {
-        font-size: 20px;
-        background: #1974a9;
-        color: #ffffff;
+        font-size: 16px;
+        font-weight: bold;
+        background: transparent;
+        color: #1974a9;
         border: none;
-        border-radius: 50%;
-        padding: 1px 5px 1.5px 5px;
         outline: none;
       }
     }
@@ -204,7 +199,6 @@ app-menu {
     border-bottom: none;
   }
 }
-
 
 /* Estilos responsive web */
 @media (min-width: 700px) {
@@ -331,23 +325,16 @@ app-menu {
         }
 
       .cont-botonmas {
-        width: 40px;
-        height: 40px;
+        margin-bottom: 10px;
         display: flex;
         justify-content: center;
         align-items: center;
         border-radius: 50%;
-        background: #1974a9;
-        color: #fff;
         cursor: pointer;
         transition: background 0.3s;
 
         .botonmas {
-          font-size: 30px;
-        }
-
-        &:hover {
-          background: #1974a9;
+          font-size: 20px;
         }
       }
     }

@@ -6,6 +6,10 @@
       <h3>Descubre</h3>
     </div>
 
+    <div class="cont-info">
+      <p *ngIf="appliedFiltersText" class="applied-filters">Filtros aplicados: {{ appliedFiltersText }}</p>
+    </div>
+
     <!-- Filtros -->
     <div class="filtros">
       <ion-button color="dark" expand="full" (click)="presentFilters()">

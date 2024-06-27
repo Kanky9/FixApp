@@ -1,22 +1,23 @@
 #pantalla-carga {
   position: relative;
-  height: 100vh; // contenedor ocupa toda la altura de la pantalla
+  height: 100%; // contenedor ocupa toda la altura de la pantalla
+  margin: 0;
 }
 
 .loading-container {
-  position: absolute;
+  position: relative;
   top: 0;
   left: 0;
   width: 100%; 
   height: 100%; 
 }
 
-.loading-container img {
+.loading-container video {
   width: 100%; // Ajusta el ancho de la imagen al ancho del contenedor
   height: 100%; // Ajusta la altura de la imagen a la altura del contenedor
   object-fit: cover; 
 }
-
+/*
 .bienvenido {
   position: absolute;
   top: 50%; 
@@ -55,6 +56,16 @@
 }
 
 
+*/
+@media (min-width: 550px) {
+  #pantalla-carga{
+    display: none;
+  }
+  .loading-container {
+    display: none;
+  }
 
-
-
+  .loading-container video {
+    display: none;
+  }
+}

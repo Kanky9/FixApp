@@ -2,6 +2,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from 'src/app/models/user.model';
 import { FirebaseService } from 'src/app/services/firebase.service';
+import { UserService } from 'src/app/services/user.service';
 import { UtilsService } from 'src/app/services/utils.service';
 
 @Component({
@@ -14,28 +15,21 @@ export class PerfilPage implements OnInit{
   empresa: boolean = true;
   currentUser: User | null = null;
   
-  
   firebaseSvc = inject(FirebaseService);
   utilsSvc = inject(UtilsService);
   router = inject(Router);
-
-
+  userSvc = inject(UserService);
   
-  
-async ngOnInit() {
-    try {
-      const authUser = await this.firebaseSvc.getCurrentUser();
-      if (authUser) {
-        const userDoc = await this.firebaseSvc.getUserDocument(authUser.uid);
-        this.currentUser = userDoc.data() as User;
+  async ngOnInit() {
+    this.getUser();
+  }
 
-        if (this.currentUser) {
-          this.empresa = this.currentUser.empresa;
-        }
-      }
-    } catch (error) {
-      console.error('Error fetching user data:', error);
-    }
+  async getUser(){
+    this.userSvc.currentUser$.subscribe((user) => {
+      this.currentUser = user;
+      this.empresa = user?.empresa ?? false;
+    });
+    this.userSvc.loadCurrentUser();
   }
 
   goToRequestBusinessAccount() {

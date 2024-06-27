@@ -1,12 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
+import { UtilsService } from './services/utils.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss'],
 })
-export class AppComponent implements OnInit{
+export class AppComponent{
   
+  utilSvc = inject(UtilsService);
+
+  showLoader$ = this.utilSvc.loading$;
+
+  onVideoEnded() {
+    this.utilSvc.hideLoader();
+  }
+
+  /*
   showLoader: boolean = true;
 
   constructor() {}
@@ -14,6 +24,6 @@ export class AppComponent implements OnInit{
   ngOnInit() {
     setTimeout(() => {
       this.showLoader = false;
-    }, 6500);
-  }
+    }, 3700);
+  }*/
 }

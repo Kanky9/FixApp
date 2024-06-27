@@ -7,6 +7,37 @@ export class CategoriasService {
 
   /* ========== Categorías ========== */
   private categorias = [
+  
+    {nombre: 'Alquiler p/ eventos',
+      areas: [
+        'Arreglos florales',
+        'Baby shower',
+        'Bautismos',
+        'Barras p/ Eventos', // Nueva área
+        'Bodas',
+        'Cumpleaños',
+        'Decoración de eventos', // Nueva área
+        'Juegos',
+        'Mobiliarios'
+      ]
+    },
+
+    {nombre: 'Asociaciones y organizaciones',
+      areas: [
+        'Asociaciones', // Movido desde Servicios Públicos y Sociales
+        'Consejo municipal', // Nueva área
+        'Corredores inmobiliarios', // Nueva área
+        'Cámara de comercio', // Nueva área
+        'Federaciones',
+        'Fundaciones',
+        'ONG',
+        'INTA', // Nueva área
+        'Sindicatos',
+        'Partidos políticos', // Nueva área
+        'Sindicatos', // Nueva área
+      ],
+    },
+  
     {nombre: 'Armería',
         
       areas: [
@@ -41,12 +72,13 @@ export class CategoriasService {
     {nombre: 'Comercio',
         
       areas: [
+        'Afilados',
         'Alimentos congelados',
         'Alimentos gourmet',
         'Alimentos orgánicos',
         'Almacén',
         'Antigüedades',
-        'Arte',
+        'Arte', // Movido aquí
         'Artesanías',
         'Autoservicio',
         'Bazar',
@@ -55,7 +87,7 @@ export class CategoriasService {
         'Calzado',
         'Camping',
         'Carnicería',
-        'Catering',
+        'Catering', // Nueva área
         'Chocolatería',
         'Comida para llevar',
         'Comida rápida',
@@ -68,6 +100,7 @@ export class CategoriasService {
         'Electrónica',
         'Envases',
         'Ferretería',
+        'Fiambrerías', // Nueva área
         'Florería',
         'Fotocopias',
         'Fotografía',
@@ -78,14 +111,16 @@ export class CategoriasService {
         'Inmuebles',
         'Insumos para el armado de bijouterie',
         'Jardinería',
+        'Joyerías', // Nueva área
         'Juguetes',
         'Lanas e hilados',
-        'Lavadero de autos',
-        'Lavandería',
+        'Lavadero de autos', // Nueva área
+        'Lavandería', // Nueva área
         'Librería',
         'Mascotas',
         'Mercado',
         'Mercerías',
+        'Mini market',
         'Mini mercado',
         'Moda intervenida',
         'Muebles',
@@ -93,10 +128,9 @@ export class CategoriasService {
         'Óptica',
         'Panaderías',
         'Pañalerías',
-        'Patinaje',
         'Perfumerías',
         'Pescadería',
-        'Pinturería',
+        'Pinturería', // Nueva área
         'Productos naturales',
         'Puestos de diarios y revistas',
         'Regalos',
@@ -105,11 +139,21 @@ export class CategoriasService {
         'Santerías',
         'Segunda mano',
         'Servicios de limpieza',
+        'Sex shop',
         'Supermercado',
-        'Surf',
         'Té y café',
         'Verdulería',
         'Vinos y licores',
+        'Viveros', // Nueva área
+      ],
+    },
+
+    {nombre: 'Construcción',
+      areas: [
+        'Construcción de viviendas',
+        'Cristales y vidrios',
+        'Materiales para la construcción',
+        'Aberturas', // Nueva área
       ],
     },
     
@@ -130,6 +174,7 @@ export class CategoriasService {
         'Deportes extremos',
         'Deportes individuales',
         'Deportes náuticos',
+        'Elementos para Deportes', // Nueva área
         'Equitación',
         'Esgrima',
         'Fútbol',
@@ -138,13 +183,15 @@ export class CategoriasService {
         'Maratón',
         'Montañismo',
         'Natación',
-        'Patinaje',
+        'Patinaje', // Repetida (ya está en Comercio)
         'Rugby',
         'Skateboarding',
-        'Surf',
+        'Suplementos nutricionales',
+        'Surf', // Repetida (ya está en Comercio)
         'Tenis',
-        'Local de ventas',
-        'Voleibol',
+        'Local de ventas', // Nueva área
+        'Voley',
+        'Yoga'
       ],
     },
     
@@ -183,19 +230,23 @@ export class CategoriasService {
         'Animación infantil',
         'Arcades',
         'Bares de karaoke',
-        'Bowling',
+        'Boliche',
+        'Bowling', 
+        'Casino', // Nueva área
         'Cines',
         'Clubes nocturnos',
+        'Clubes sociales',
         'Conciertos',
         'Discotecas',
         'Escape rooms',
         'Eventos deportivos',
         'Eventos musicales',
         'Fiestas temáticas',
-        'Gimnasios de escalada',
+        'Gimnasios de escalada', // Nueva área
         'Juegos de mesa',
         'Juegos mecánicos',
-        'Painball',
+        'Karaoke',
+        'Paintball',
         'Parques acuáticos',
         'Parques de diversiones',
         'Parques temáticos',
@@ -203,6 +254,7 @@ export class CategoriasService {
         'Salas de conciertos',
         'Salas de escape',
         'Salones de baile',
+        'Salones de fiesta', // Nueva área
         'Teatros',
         'Zoológicos',
       ],
@@ -265,12 +317,15 @@ export class CategoriasService {
         'Local',
         'Luz pulsada',
         'Manicuría',
+        'Maquillaje artístico',
+        'Maquillaje social',
         'Masaje drenante brasilero',
         'Masaje psicosensitivo',
         'Masaje reductor',
         'Masajes',
         'Masajes faciales',
         'Medicina ortomolecular',
+        'Memoria celular',
         'Microglanding',
         'Ondas rusas',
         'Pecas tratamiento',
@@ -310,6 +365,69 @@ export class CategoriasService {
         'Ventas',
       ],
     },
+
+    {nombre: 'Finanzas y seguros',
+      areas: [
+        'Ahorro e inversión',
+        'Agencia de lotería', // Movido aquí
+        'Asesoramiento financiero',
+        'Banca electrónica',
+        'Bancos',
+        'Cajas de ahorro',
+        'Cajas de seguridad',
+        'Cajas rurales',
+        'Cartera de valores',
+        'Cooperativas de crédito',
+        'Crédito',
+        'Inversiones',
+        'Leasing',
+        'Planes de pensiones',
+        'Planes de previsión',
+        'Préstamos',
+        'Seguros',
+        'Servicios financieros',
+      ],
+    },
+    
+    {nombre: 'Gastronomía',
+      areas: [
+        'Alimentos congelados',
+        'Alimentos gourmet',
+        'Alimentos orgánicos',
+        'Asadores',
+        'Bares',
+        'Cafeterías',
+        'Catering',
+        'Cenadurías',
+        'Chocolaterías',
+        'Comida a domicilio',
+        'Comida callejera',
+        'Comida rápida',
+        'Comida saludable',
+        'Comida vegetariana',
+        'Confiterías',
+        'Delicatessen',
+        'Empanaderías',
+        'Fiambrerías', // Nueva área
+        'Fruterías',
+        'Heladerías',
+        'Panaderías',
+        'Pastelerías',
+        'Pescaderías',
+        'Pizzerías',
+        'Postres y repostería',
+        'Restaurantes',
+        'Rotiserías', // Nueva área
+        'Supermercados',
+        'Taquerías',
+        'Tiendas de alimentos',
+        'Tiendas de bebidas',
+        'Tiendas de café',
+        'Tiendas de dulces',
+        'Tiendas de vinos y licores',
+        'Verdulerías',
+      ],
+    },
     
     {nombre: 'Hotelería y alojamiento',
         
@@ -335,6 +453,21 @@ export class CategoriasService {
         'Trivago',
         'TurismoCity',
         'VRBO (ex Homeaway)',
+      ],
+    },
+
+    {nombre: 'Industria y manufactura',
+      areas: [
+        'Biometrías', // Nueva área
+        'Frigoríficos', // Nueva área
+        'Herrerías', // Nueva área
+        'Imprentas', // Nueva área
+        'Madereras', // Nueva área
+        'Maquinarias agrícolas', // Nueva área
+        'Metalúrgica', // Nueva área
+        'Neumática', // Nueva área
+        'Salinera', // Nueva área
+        'Venta de agroquímicos', // Nueva área
       ],
     },
 
@@ -383,30 +516,45 @@ export class CategoriasService {
     {nombre: 'Oficios',
         
       areas: [
-        'Albañil',
-        'Artista',
-        'Carpintero',
-        'Cerrajero',
-        'Consultores',
-        'Corredores de bienes inmuebles',
-        'Decoración de eventos',
-        'Decorador de interiores',
-        'Diseñador gráfico',
-        'Economista',
-        'Electricista',
-        'Escritores',
-        'Fotógrafo',
-        'Gasista',
-        'Couiffeur',
-        'Peluquería',
-        'Pintor',
-        'Plomero',
-        'Soldador',
-        'Traductor',
-        'Zinguería',
+        'Albañilería',
+        'Carpintería',
+        'Cerrajería',
+        'Electricistas',
+        'Fontanería',
+        'Jardinería',
+        'Mecánicos',
+        'Pintores',
+        'Plomería',
+        'Soldadores',
+        'Técnicos',
+        'Telecomunicaciones',
+        'Transporte',
+        'Vigilancia',
       ],
     },
     
+    {nombre: 'Profesiones Liberales',
+      areas: [
+        'Abogados',
+        'Agrónomos',
+        'Arquitectos',
+        'Artista plástico',
+        'Consultores',
+        'Corredores de Bienes inmuebles',
+        'Decorador de interiores',
+        'Diseñadores gráficos',
+        'Economistas',
+        'Escritores',
+        'Fotógrafos',
+        'Ingenieros',
+        'Notarios',
+        'Paisajistas',
+        'Periodistas',
+        'Traductores e intérpretes',
+        'Wedding planner' // Nueva área
+      ],
+    },
+
     {nombre: 'Salud',
       
       areas: [
@@ -415,6 +563,7 @@ export class CategoriasService {
         'Anestesiología',
         'ART',
         'Banco de Sangre',
+        'Biodecodificación',
         'Cardiología',
         'Centro de cirugía plástica y reparadora',
         'Centro oncológico',
@@ -448,6 +597,7 @@ export class CategoriasService {
         'Fonoaudiología',
         'Fototerapia',
         'Gastroenterología',
+        'Gemoterapia',
         'Gerentología',
         'Hematología',
         'Hemodinamia',
@@ -475,6 +625,7 @@ export class CategoriasService {
         'Oftalmología',
         'Oncología',
         'Ortesis plantares',
+        'Ortopedias',
         'Otorrinnolaringología',
         'PAMI dentro de los sanatorios',
         'Pediatría y meonatología',
@@ -486,6 +637,7 @@ export class CategoriasService {
         'Rehabilitación vestibular',
         'Reumatología',
         'Sanatorio',
+        'Servicios de ambulancia', // Nueva área
         'Servicio de ortopedia y traumatología',
         'Terapias alternativas',
         'Terapias holísticas',
@@ -498,9 +650,12 @@ export class CategoriasService {
         
       areas: [
         'Pago Fácil',
+        'Pre pagas',
         'Pronto Pago',
         'RapiPago',
         'Santa Fe Plus',
+        'Seguros',
+        'Western Unión',
       ],
     },
     
@@ -516,6 +671,75 @@ export class CategoriasService {
           'Muebles',
           'Nebulizadores',
           'Ropa',
+      ],
+    },
+
+    {nombre: 'Servicios Públicos y Sociales',
+      areas: [
+        'Administraciones públicas',
+        'Agua potable',
+        'Anses', // Nueva área
+        'API',
+        'Asociaciones', // Movido a Asociaciones y organizaciones
+        'Ayuntamiento',
+        'Bomberos',
+        'Cámaras de comercio',
+        'Cementerio',
+        'Consulados',
+        'Correos',
+        'Delegaciones de gobierno',
+        'Defensa al consumidor', // Nueva área
+        'Defensoría del pueblo',
+        'Embajadas',
+        'Estaciones de servicio',
+        'Guardia civil',
+        'Ministerios',
+        'Lideco (Ley 24240)', // Nueva área
+        'Oficinas de empleo',
+        'Oficinas de turismo',
+        'Organismos autónomos',
+        'Policía',
+        'Protección civil',
+        'Radio AM',
+        'Radio FM',
+        'Registro de automotor', // Nueva área
+        'Registro de motos', // Nueva área
+        'Secretaria de trabajo', // Nueva área
+        'Servicios sociales',
+        'TV local',
+        'Coop. eléctrica', // Nueva área
+        'Coop. obras sanitarias', // Nueva área
+        'E.P.E', // Nueva área
+        'Litoral gas', // Nueva área
+      ]
+    },
+
+    {nombre: 'Servicios varios',
+      areas: [
+        'Consultoras de trabajos', // Nueva área
+        'Descartables', // Nueva área
+        'Estudio jurídico', // Nueva área
+        'Equipamiento comercial', // Nueva área
+        'Geriátricos', // Nueva área
+        'Lavadero de autos', // Nueva área
+        'Lavandería', // Nueva área
+        'Modistas', // Nueva área
+        'Obras sociales', // Nueva área
+        'Péndulo Hebreo',
+        'Péndulo Karnak',
+        'Servicio de transporte', // Nueva área
+        'Servicios fúnebres', // Nueva área
+        'Servicios de cable e internet', // Nueva área
+        'Tarot',
+        'Teléfonos útiles',
+        'Refrigeración y calefacción', // Nueva área
+      ],
+    },
+      
+    {nombre: 'Seguridad y protección',
+      areas: [
+        'Alarmas', // Nueva área
+        'Servicios de vigilancia', // Nueva área
       ],
     },
 
@@ -536,9 +760,12 @@ export class CategoriasService {
         'Diseño web',
         'Gestión de proyectos de TI',
         'Hardware',
+        'Hosting',
         'Impresiones',
         'Ingeniería de sistemas',
         'Inteligencia artificial',
+        'Internet',
+        'Mantenimiento de sistemas',
         'Mercado en línea de tecnología',
         'PC',
         'Realidad aumentada',
@@ -548,6 +775,8 @@ export class CategoriasService {
         'Reparación de PC',
         'Reparación general',
         'Robótica',
+        'Seguridad informática',
+        'Servicio de cable e internet', // Nueva área
         'Soporte técnico',
         'Tecnologías de la información',
         'Testing de software',
@@ -557,7 +786,22 @@ export class CategoriasService {
         'Ventas',
       ],
     },
-    
+
+    {nombre: 'Transporte y alquiler',
+      areas: [
+        'Agencia', 
+        'Alquiler de vehículos',
+        'Alquileres quinta',
+        'Comisiones',
+        'Estaciones de servicio',
+        'Estación de Ómnibus',
+        'Taxis',
+        'Transporte público',
+        'Transportistas',
+        'Servicios de ambulancia', // Nueva área
+        'Serv. Cadetería',
+      ],
+    },
     // Agrega más categorías y áreas según necesites
   ];
 

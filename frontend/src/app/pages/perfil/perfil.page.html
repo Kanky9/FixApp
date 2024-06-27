@@ -10,19 +10,73 @@
 
     <ion-card>
       <div *ngIf="currentUser">
-        <p *ngIf="currentUser.admin"><strong>Cuenta de administrador</strong></p>
-        <p *ngIf="currentUser.empresa"><strong>Cuenta de empresa activa</strong></p>
+
+        <ion-item *ngIf="currentUser.admin">
+          <ion-label>
+            <strong>Cuenta de administrador</strong>
+          </ion-label>
+        </ion-item>
+
+        <ion-item *ngIf="currentUser.empresa">
+          <ion-label>
+            <strong>Cuenta de empresa activa</strong>
+          </ion-label>
+        </ion-item>
       
-      
-        <p><strong>Nombre:</strong> {{ currentUser.nombre }}</p>
-        <p><strong>Apellido:</strong> {{ currentUser.apellido }}</p>
-        <p><strong>Email:</strong> {{ currentUser.email }}</p>
-        <p><strong>Teléfono:</strong> {{ currentUser.telefono }}</p>
-        <p><strong>Fecha de Nacimiento:</strong> {{ currentUser.fecha | date }}</p>
-        <p><strong>DNI:</strong> {{ currentUser.dni }}</p>
-        <p><strong>Ubicación:</strong> {{ currentUser.ubicacion }}</p>
-        <p><strong>Dirección:</strong> {{ currentUser.direccion }}</p>
+        <ion-item>
+          <ion-label>
+            <strong>Nombre:</strong> {{ currentUser.nombre }}
+          </ion-label>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>
+            <strong>Apellido:</strong> {{ currentUser.apellido }}
+          </ion-label>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>
+            <strong>Email:</strong> {{ currentUser.email }}
+          </ion-label>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>
+            <strong>Teléfono:</strong> {{ currentUser.telefono }}
+          </ion-label>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>
+            <strong>Fecha de Nacimiento:</strong> {{ currentUser.fecha | date }}
+          </ion-label>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>
+            <strong>DNI:</strong> {{ currentUser.dni }}
+          </ion-label>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>
+            <strong>Ubicación:</strong> {{ currentUser.ubicacion }}
+          </ion-label>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>
+            <strong>Dirección:</strong> {{ currentUser.direccion }}
+          </ion-label>
+        </ion-item>
       </div>
+      
+      <!--  -->
+      <ion-button expand="block"  color="light" [routerLink]="['/editar-perfil']" routerLinkActive="active">
+        editar perfil
+      </ion-button>
+     
     </ion-card>
 
   </div>

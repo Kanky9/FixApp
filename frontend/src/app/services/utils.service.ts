@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { AlertController, LoadingController, ToastController, ToastOptions } from '@ionic/angular';
 import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
 import { TextFieldTypes } from '@ionic/core'; // Importa TextFieldTypes
+import { BehaviorSubject } from 'rxjs';
  
 @Injectable({
   providedIn: 'root',
@@ -12,6 +13,13 @@ export class UtilsService {
   loadingCtrl = inject(LoadingController);
   toastCtrl = inject(ToastController);
   router = inject(Router);
+
+  private _loading = new BehaviorSubject<boolean>(true);
+  loading$ = this._loading.asObservable();
+
+  hideLoader() {
+    this._loading.next(false);
+  }
 
   async takePicture(promptLabelHeader: string): Promise<string> {
     const photo = await Camera.getPhoto({
@@ -87,7 +95,7 @@ export class UtilsService {
     return JSON.parse(localStorage.getItem(key));
   }
 
-
+  
 
   async presentPrompt(options: {
     header: string;

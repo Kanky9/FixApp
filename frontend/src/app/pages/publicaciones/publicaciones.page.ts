@@ -18,6 +18,7 @@ export class PublicacionesPage implements OnInit {
   categoriasSvc = inject(CategoriasService); // Inyectar el servicio
   actionSheetCtrl = inject(ActionSheetController); // Inyectar ActionSheetController
 
+  appliedFiltersText: string = '';
   products: Product[] = [];
   filteredProducts: Product[] = [];
   loading: boolean = false;
@@ -31,6 +32,7 @@ export class PublicacionesPage implements OnInit {
     categoria: '',
     area: '',
     ubicacion: '',
+    direccion: '',
     palabraClave: '' // Añadir filtro de palabra clave
   };
 
@@ -109,6 +111,7 @@ export class PublicacionesPage implements OnInit {
       const matchesCategoria = this.filters.categoria ? p.categoria === this.filters.categoria : true;
       const matchesArea = this.filters.area ? p.area === this.filters.area : true;
       const matchesUbicacion = this.filters.ubicacion ? p.ubicacion.toLowerCase().includes(this.filters.ubicacion.toLowerCase()) : true;
+      const matchesDireccion = this.filters.direccion ? p.direccion.toLowerCase().includes(this.filters.direccion.toLowerCase()) : true;
       const matchesPalabraClave = this.filters.palabraClave ? (
         p.nombre.toLowerCase().includes(this.filters.palabraClave.toLowerCase()) ||
         p.descripcion.toLowerCase().includes(this.filters.palabraClave.toLowerCase()) ||
@@ -118,8 +121,33 @@ export class PublicacionesPage implements OnInit {
         p.direccion.toLowerCase().includes(this.filters.palabraClave.toLowerCase())
       ) : true;
 
-      return matchesCategoria && matchesArea && matchesUbicacion && matchesPalabraClave;
+        return matchesCategoria && matchesArea && matchesUbicacion && matchesDireccion && matchesPalabraClave;
     });
+
+    this.updateAppliedFiltersText(); // Llama a la función para actualizar el texto de filtros aplicados
+  }
+
+  updateAppliedFiltersText() {
+    let filtersText = '';
+
+    if (this.filters.categoria) {
+      filtersText += `Categoría: ${this.filters.categoria}, `;
+    }
+    if (this.filters.area) {
+      filtersText += `Área: ${this.filters.area}, `;
+    }
+    if (this.filters.ubicacion) {
+      filtersText += `Ubicación: ${this.filters.ubicacion}, `;
+    }
+    if (this.filters.direccion) {
+      filtersText += `Dirección: ${this.filters.direccion}, `;
+    }
+    if (this.filters.palabraClave) {
+      filtersText += `Palabra clave: ${this.filters.palabraClave}, `;
+    }
+
+    // Eliminar la última coma y espacio si existe
+    this.appliedFiltersText = filtersText.trim().slice(0, -1);
   }
 
   clearFilters() {
@@ -127,9 +155,11 @@ export class PublicacionesPage implements OnInit {
       categoria: '',
       area: '',
       ubicacion: '',
+      direccion: '',
       palabraClave: ''
     };
     this.filteredProducts = this.products;
+    this.appliedFiltersText = ''; // Limpiar el texto de filtros aplicados
   }
 
   // Cargar categorías y áreas desde el servicio
@@ -204,6 +234,35 @@ export class PublicacionesPage implements OnInit {
                   text: 'Aceptar',
                   handler: (data) => {
                     this.filters.ubicacion = data.ubicacion;
+                    this.applyFilters();
+                  }
+                }
+              ],
+            });
+            await alert.present();
+          }
+        },
+        {
+          text: 'Dirección',
+          handler: async () => {
+            const alert = await this.utilsSvc.presentPrompt({
+              header: 'Dirección',
+              inputs: [
+                {
+                  name: 'direccion',
+                  type: 'text',
+                  placeholder: 'Escribe una Dirección'
+                }
+              ],
+              buttons: [
+                {
+                  text: 'Cancelar',
+                  role: 'cancel',
+                },
+                {
+                  text: 'Aceptar',
+                  handler: (data) => {
+                    this.filters.direccion = data.direccion;
                     this.applyFilters();
                   }
                 }
