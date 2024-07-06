@@ -19,13 +19,14 @@
 
     <div class="item" *ngFor="let p of filteredProducts">
       <div class="cont-botones">
+        <div class="cont-botonmas" (click)="goToPublicacion(p.productId)">
+          <button class="botonmas">Ver más...</button>
+        </div>
+      
         <div class="cont-botonfav">
           <button class="boton-favorito" (click)="toggleFavorite(p.productId)">
             <ion-icon [name]="favoriteMap[p.productId] ? 'heart' : 'heart-outline'"></ion-icon>
           </button>
-        </div>
-        <div class="cont-botonmas">
-          <button class="botonmas">+</button>
         </div>
       </div>
       <div class="cont-img">

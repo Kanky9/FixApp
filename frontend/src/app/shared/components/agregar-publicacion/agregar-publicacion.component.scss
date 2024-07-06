@@ -1,5 +1,5 @@
 ion-content{
-    --background: linear-gradient(45deg, #9132efba, #251639);
+    --background: linear-gradient(45deg, #d5d0db, #9132efba);
 
     .cont-title {
         text-align: center;
@@ -29,17 +29,17 @@ ion-content{
             background: #eeeeeee6;
   
             .custom-input {
-              border: 2px solid #ff4b2b;
+              border: 2px solid #7b2cdc;
               border-radius: 20px;
               padding: 0.5rem 1rem;
               margin-bottom: 1rem;
-              color: #ff4b2b;
+              color: #7b2cdc;
               font-weight: bold;
               transition: border-color 0.3s ease;
   
               &:focus {
                 outline: none;
-                border-color: #ff4b2b;
+                border-color: #7b2cdc;
               }
             }
 

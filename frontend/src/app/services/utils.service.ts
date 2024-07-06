@@ -13,14 +13,14 @@ export class UtilsService {
   loadingCtrl = inject(LoadingController);
   toastCtrl = inject(ToastController);
   router = inject(Router);
-
+/*
   private _loading = new BehaviorSubject<boolean>(true);
   loading$ = this._loading.asObservable();
 
   hideLoader() {
     this._loading.next(false);
   }
-
+*/
   async takePicture(promptLabelHeader: string): Promise<string> {
     const photo = await Camera.getPhoto({
       quality: 90,

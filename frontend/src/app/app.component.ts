@@ -7,23 +7,14 @@ import { UtilsService } from './services/utils.service';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent{
-  
-  utilSvc = inject(UtilsService);
 
-  showLoader$ = this.utilSvc.loading$;
+  showSplash = true;
+  isVideo = true; // Cambia esto a `false` si quieres usar un GIF en lugar del video
 
-  onVideoEnded() {
-    this.utilSvc.hideLoader();
-  }
-
-  /*
-  showLoader: boolean = true;
-
-  constructor() {}
-
-  ngOnInit() {
+  constructor() {
+    // Oculta la pantalla de carga después de que el video termine
     setTimeout(() => {
-      this.showLoader = false;
-    }, 3700);
-  }*/
+      this.showSplash = false;
+    }, 3800); // Duración del video en milisegundos (ajusta según sea necesario)
+  }
 }

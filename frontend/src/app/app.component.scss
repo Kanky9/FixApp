@@ -1,4 +1,22 @@
-#pantalla-carga {
+.splash-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000; // Ajusta el color de fondo según sea necesario
+  z-index: 9999;
+}
+
+.splash-video, .splash-gif {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+
+/*#pantalla-carga {
   position: relative;
   height: 100%; // contenedor ocupa toda la altura de la pantalla
   margin: 0;
@@ -17,7 +35,7 @@
   height: 100%; // Ajusta la altura de la imagen a la altura del contenedor
   object-fit: cover; 
 }
-/*
+---
 .bienvenido {
   position: absolute;
   top: 50%; 
@@ -56,7 +74,7 @@
 }
 
 
-*/
+----
 @media (min-width: 550px) {
   #pantalla-carga{
     display: none;
@@ -68,4 +86,4 @@
   .loading-container video {
     display: none;
   }
-}
+}*/

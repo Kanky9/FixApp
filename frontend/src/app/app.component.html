@@ -1,4 +1,10 @@
 <ion-app>
+  <div *ngIf="showSplash" class="splash-screen">
+    
+    <img *ngIf="isVideo" src="../assets/videos/pantallaDeCarga.gif" class="splash-gif" />
+  </div>
+  <ion-router-outlet></ion-router-outlet>
+  <!-- 
   <ion-router-outlet *ngIf="(showLoader$ | async) === false"></ion-router-outlet>
   <ion-content *ngIf="(showLoader$ | async) === true" id="pantalla-carga">
     <div class="loading-container">
@@ -6,4 +12,5 @@
         (ended)="onVideoEnded()"></video>
     </div>
   </ion-content>
+  -->
 </ion-app>

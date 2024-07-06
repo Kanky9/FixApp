@@ -1,5 +1,6 @@
 ion-content{
-    --background: #252A2F;
+    //--background: #252A2F; color base gris oscuro
+    --background: #0000;
 
    
     app-menu{
@@ -10,7 +11,7 @@ ion-content{
         margin-top: 4rem;
 
         h1{
-            color: #f3f3f3;
+            color: #9f4af3de;
             text-align: center;
         }
 
@@ -18,5 +19,14 @@ ion-content{
             margin-bottom: 5px;
             border-bottom: 1px solid #f3f3f3;
         }
+
+        ion-button {
+            --background: #9f4af3de;
+            color: white;
+        
+            &:hover {
+                --background: #9032efb2;
+            }
+        }        
     }
 }

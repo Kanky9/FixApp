@@ -6,6 +6,11 @@ const config: CapacitorConfig = {
   webDir: 'www',
   server: {
     androidScheme: 'https'
+  },
+  plugins: {
+    SplashScreen: {
+      launchShowDuration: 0 // 0 para ocultar inmediatamente y mostrar el video desde la app
+    }
   }
 };
 

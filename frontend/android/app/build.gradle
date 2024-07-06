@@ -4,7 +4,7 @@ android {
     namespace "io.ionic.starter"
     compileSdkVersion 34 // Actualiza esta línea con el número de versión adecuado
     defaultConfig {
-        applicationId "io.ionic.starter"
+        applicationId "com.Fix"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

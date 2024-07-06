@@ -1,6 +1,6 @@
 ion-content{
-
-  --background: #252A2F;
+  //--background: #252A2F; color base gris oscuro
+  --background: #0000;
   margin-top: 15px;
   padding-top: 10px;
   z-index: 10000;
@@ -64,7 +64,8 @@ ion-content{
             .aceptada{
                  width: 120px;
                  height: 50px;
-                 background: #8bce61;
+                 //background: #8bce61; boton verde de "aceptada"
+                 background: #9f4af3de;
                  border-radius: 10px;
                  display: flex;
                  justify-content: center;
@@ -82,7 +83,7 @@ ion-content{
             .rechazada{
                 width: 120px;
                 height: 50px;
-                background: #c84444;
+                background: #d45353;
                 border-radius: 10px;
                 display: flex;
                 justify-content: center;

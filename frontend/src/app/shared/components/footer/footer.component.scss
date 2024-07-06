@@ -1,6 +1,13 @@
 ion-footer{
+    margin-top: 20px;
   --background: linear-gradient(0deg, #a975ed, #252A2F);
   background: var(--background);
+}
+
+.linea{
+    height: 1px;
+    width: 100%;
+    background: #ffffff;
 }
 
 h1, h2, p, a {

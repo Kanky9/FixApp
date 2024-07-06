@@ -16,20 +16,20 @@ app-menu {
   display: flex;
   justify-content: center;
   margin-top: 20px;
-}
 
-.cont-logo .logo {
-  display: block;
-  width: 170px;
-  height: 170px;
-  animation: pulseOpacity 5s infinite ease-in-out;
+  .logo {
+    display: block;
+    width: 150px;
+    height: 150px;
+    animation: pulseOpacity 5s infinite ease-in-out;
+  }
 }
 
 @keyframes pulseOpacity {
   0%, 100% {
     transform: scale(1);
     opacity: 1;
-  }
+  }           
   50% {
     transform: scale(1.2);
     opacity: 0;
@@ -41,7 +41,7 @@ app-menu {
 }
 
 .search-container {
-  margin-top: -50px;
+  margin-top: -20px;
   display: flex;
   justify-content: center;
 
@@ -174,7 +174,7 @@ app-menu {
 
       ion-icon {
         font-size: 24px;
-        color: red;
+        color: #7b2cdc;
 
       }
     }
@@ -188,7 +188,7 @@ app-menu {
         font-size: 16px;
         font-weight: bold;
         background: transparent;
-        color: #1974a9;
+        color: #1c82be;
         border: none;
         outline: none;
       }

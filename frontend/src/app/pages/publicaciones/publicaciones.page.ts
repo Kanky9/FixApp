@@ -1,4 +1,5 @@
 import { Component, inject, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ActionSheetController } from '@ionic/angular';
 import { Product } from 'src/app/models/product.model';
 import { User } from 'src/app/models/user.model';
@@ -17,6 +18,7 @@ export class PublicacionesPage implements OnInit {
   utilsSvc = inject(UtilsService);
   categoriasSvc = inject(CategoriasService); // Inyectar el servicio
   actionSheetCtrl = inject(ActionSheetController); // Inyectar ActionSheetController
+  router = inject(Router);
 
   appliedFiltersText: string = '';
   products: Product[] = [];
@@ -104,6 +106,10 @@ export class PublicacionesPage implements OnInit {
         });
       }
     }
+  }
+
+  goToPublicacion(productId: string) {
+    this.router.navigate(['/publicacion', productId]);
   }
 
   applyFilters() {
