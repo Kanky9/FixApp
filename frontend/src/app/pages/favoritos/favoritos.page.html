@@ -15,16 +15,16 @@
 
       <!-- ========== Publicaciones Favoritas ========== -->
       <div class="item" *ngFor="let p of favoriteProducts">
-
+         
         <div class="cont-botones">
+          <div class="cont-botonmas" (click)="goToPublicacion(p.productId)">
+            <button class="botonmas">Ver más...</button>
+          </div>
+        
           <div class="cont-botonfav">
             <button class="boton-favorito" (click)="toggleFavorite(p.productId)">
               <ion-icon [name]="'heart'"></ion-icon>
             </button>
-          </div>
-
-          <div class="cont-botonmas" (click)="goToPublicacion(p.productId)">
-            <button class="botonmas">+</button>
           </div>
         </div>
 

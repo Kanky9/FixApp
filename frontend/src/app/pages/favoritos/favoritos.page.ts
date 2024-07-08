@@ -20,6 +20,7 @@ export class FavoritosPage  implements OnInit{
   loading: boolean = false; 
   currentUser: any;
 
+  
   constructor() { }
 
   async ngOnInit() {
@@ -75,8 +76,13 @@ export class FavoritosPage  implements OnInit{
   }
 
   goToPublicacion(productId: string) {
+  if (productId) { // Asegurarse de que publicationId no es undefined
     this.router.navigate(['/publicacion', productId]);
+  } else {
+    console.error('El ID de la publicación es undefined');
+    // Manejar el caso de error, posiblemente mostrando un mensaje al usuario
   }
+}
 
   async doRefresh(event) {
     await this.ngOnInit();

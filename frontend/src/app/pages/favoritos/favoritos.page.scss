@@ -92,44 +92,42 @@ app-menu{
     } 
   }
 
-  .cont-botones{
+  .cont-botones {
 
     width: 90vw;
     display: flex;
     justify-content: flex-end;
     margin-bottom: -20px;
-    z-index: 10000000;
 
-    .boton-favorito{
+    .boton-favorito {
+      z-index: 1000000;
       background-color: transparent;
       border: none;
       color: #f3f3f3;
       cursor: pointer;
       margin-right: 10px;
 
-      ion-icon{
-        font-size: 28px;
-        color: red;
-        
+      ion-icon {
+        font-size: 24px;
+        color: #7b2cdc;
+
       }
-    } 
-    .cont-botonmas{
+    }
+
+    .cont-botonmas {
+      z-index: 1000000;
       cursor: pointer;
-      margin-right: 10px;
-      width: 20px;
-      height: 20px;
+      margin-right: 20px;
 
       .botonmas {
-        font-size: 24px;
-        background: #7b2cdc;
-        color: #ffffff; 
-        border: none; 
-        border-radius: 35%; 
-        padding: 1px 5px 1.5px 5px;
-        outline: none; 
-        
+        font-size: 16px;
+        font-weight: bold;
+        background: transparent;
+        color: #1c82be;
+        border: none;
+        outline: none;
       }
-    } 
+    }
   }
   
   .item:last-child {
@@ -180,26 +178,39 @@ app-menu{
       } 
     }
 
-    .cont-botones{
+    .cont-botones {
+        transform: translateY(950%);
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+        gap: 5px; /* Espacio entre los botones */
+        width: 100%;
 
-      width: 97vw;      
-
-      .boton-favorito{
-
-        ion-icon{
-          font-size: 38px;
-          
+        .boton-favorito {
+          ion-icon {
+            font-size: 40px;
+            color: #ff0000;
+            transition: color 0.3s;
+            transform: translateY(.5vh);
+            &:hover {
+              color: #e60000;
+            }
+          }
         }
-      } 
-      .cont-botonmas{
-        width: 30px;
-        height: 28px;
+
+      .cont-botonmas {
+        margin-bottom: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: background 0.3s;
 
         .botonmas {
-          font-size: 30px;
-          
+          font-size: 20px;
         }
-      } 
+      }
     }
   }
 }
