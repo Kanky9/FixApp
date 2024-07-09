@@ -189,11 +189,11 @@ app-menu{
         .boton-favorito {
           ion-icon {
             font-size: 40px;
-            color: #ff0000;
+            color: #7b2cdc;
             transition: color 0.3s;
             transform: translateY(.5vh);
             &:hover {
-              color: #e60000;
+              color: #7b2cdc;
             }
           }
         }
