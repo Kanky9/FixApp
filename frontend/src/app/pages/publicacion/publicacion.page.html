@@ -36,21 +36,25 @@
         <h2>{{ publicacion.nombre }}</h2>
       </div>
       <div class="cont-subtitle">
-        <p><strong>Categoría:</strong> {{ publicacion.categoria }}</p>
-        <p><strong>Área:</strong> {{ publicacion.area }}</p>
-        <p><strong>Teléfono:</strong> {{ publicacion.telefono }}</p>
-        <p><strong>Ubicación:</strong> {{ publicacion.ubicacion }}</p>
-        <p><strong>Dirección:</strong> {{ publicacion.direccion }}</p>
+        <div class="cont-datos">
+          <p><strong>Categoría:</strong> {{ publicacion.categoria }}</p>
+          <p><strong>Área:</strong> {{ publicacion.area }}</p>
+          <p><strong>Teléfono:</strong> {{ publicacion.telefono }}</p>
+          <p><strong>Ubicación:</strong> {{ publicacion.ubicacion }}</p>
+          <p><strong>Dirección:</strong> {{ publicacion.direccion }}</p>
+        </div>
         <!-- Google maps desactivado
         <ion-button color="light" (click)="abrirEnGoogleMaps(publicacion.ubicacion, publicacion.direccion)">Ver en Google Maps</ion-button>
         -->
-        <div class="desc-cont">
-          <p class="Descripcion-title"><strong>Descripción</strong></p>
+        <div class="cont-descripcion">
+          <div class="desc-cont">
+            <p class="Descripcion-title"><strong>Descripción</strong></p>
+          </div>
+          <br>
+          <p class="descripcion"><span [innerHTML]="getSanitizedHtml(publicacion.descripcion)"></span></p>
         </div>
-        <br>
-        <p class="descripcion"><span [innerHTML]="getSanitizedHtml(publicacion.descripcion)"></span></p>
 
       </div>
     </div>
-  </div>
+  </div> 
 </ion-content>
