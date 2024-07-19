@@ -17,7 +17,7 @@
     </div>
 
     <div class="cont-title">
-      <h3 *ngIf="!searchText">Descubre</h3>
+      <h3 *ngIf="!searchText">Búsquedas precisas</h3>
       <h3 *ngIf="searchText && filteredProducts.length">Resultados para: "{{ searchText }}"</h3>
       <h3 *ngIf="searchText && !filteredProducts.length">No se encontraron resultados para: "{{ searchText }}"</h3>
     </div>
