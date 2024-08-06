@@ -628,7 +628,7 @@ export class CategoriasService {
         'Ortopedias',
         'Otorrinnolaringología',
         'PAMI dentro de los sanatorios',
-        'Pediatría y meonatología',
+        'Pediatría y neonatología',
         'Psicología',
         'Psicopedagogía',
         'Psiquiatría',
